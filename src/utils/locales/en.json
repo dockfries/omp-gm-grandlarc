@@ -1,0 +1,22 @@
+{
+  "error": {
+    "dialogLimited": "[Dialog]: The maximum number of dialogs is reached",
+    "commandTwice": "It is not supported to listen for the same event more than once",
+    "commandFormat": "Please enter the correct command",
+    "commandUndefined": "The command %s you entered does not exist",
+    "initTwice": "Cannot be initialized more than once"
+  },
+  "server": {
+    "running": "Running Grand Larceny - by the SA-MP team",
+    "welcome": "Welcome to Grand Larceny",
+    "loadedVeh": "Total vehicles from files: %s"
+  },
+  "dialog": {
+    "lang": {
+      "change": "You are using %s, and you can modify the language again through / language."
+    }
+  },
+  "tips": {
+    "changecity": "You will change city the next time you spawn. Or use /kill."
+  }
+}

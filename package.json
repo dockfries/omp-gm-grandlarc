@@ -1,0 +1,61 @@
+{
+  "name": "omp-gm-grandlarc",
+  "version": "1.0.0",
+  "description": "The GrandLarceny sample gamemode written with omp-node-ts",
+  "scripts": {
+    "serve": "omp-server",
+    "dev": "npm run clean && npm-run-all -p -r -l dev:watch dev:server",
+    "dev:watch": "cross-env NODE_ENV=dev rollup -c -w",
+    "dev:server": "nodemon -x omp-server -w dist/bundle.js -d 2",
+    "build": "npm run clean && cross-env NODE_ENV=prod rollup -c",
+    "clean": "rimraf dist",
+    "lint": "eslint src/* --fix -c .eslintrc"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  },
+  "keywords": [
+    "sa-mp",
+    "sa:mp",
+    "open.mp",
+    "omp",
+    "gamemode",
+    "samp-node"
+  ],
+  "author": "YuCarl77",
+  "license": "ISC",
+  "homepage": "https://github.com/YuCarl77/omp-gm-grandlarc#readme",
+  "bugs": {
+    "url": "https://github.com/YuCarl77/omp-gm-grandlarc/issues"
+  },
+  "dependencies": {
+    "omp-wrapper": "^0.0.5",
+    "omp-wrapper-streamer": "^0.0.1",
+    "samp-node-lib": "^1.1.5"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^22.0.1",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "@rollup/plugin-typescript": "^8.3.3",
+    "@sa-mp/node": "^0.2.0",
+    "@tsconfig/node16": "^1.0.3",
+    "@types/node": "^18.0.6",
+    "@typescript-eslint/eslint-plugin": "^5.30.7",
+    "@typescript-eslint/parser": "^5.30.7",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.20.0",
+    "husky": "^8.0.1",
+    "iconv-lite": "^0.6.3",
+    "nodemon": "^2.0.19",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.77.0",
+    "rollup-plugin-node-externals": "^4.1.1",
+    "rollup-plugin-terser": "^7.0.2",
+    "tslib": "^2.4.0",
+    "typescript": "^4.7.4"
+  }
+}

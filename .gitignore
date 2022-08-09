@@ -1,0 +1,12 @@
+.DS_Store
+.vscode
+node_modules
+dist
+components
+log.txt
+omp-server.exe
+libnode.dll
+*.log
+*.dmp
+*.pdb
+plugins

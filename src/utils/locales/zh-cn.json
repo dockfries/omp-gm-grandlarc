@@ -1,0 +1,22 @@
+{
+  "error": {
+    "dialogLimited": "[对话框]: 已达到数量上限",
+    "commandTwice": "不支持多次监听同一事件",
+    "commandFormat": "请输入正确的指令",
+    "commandUndefined": "您输入的指令 %s 不存在",
+    "initTwice": "不能多次初始化"
+  },
+  "server": {
+    "running": "正在运行由SA-MP团队提供的 - 侠盗猎手",
+    "welcome": "欢迎来到侠盗猎手",
+    "loadedVeh": "从文件中共加载了 %s 个载具"
+  },
+  "dialog": {
+    "lang": {
+      "change": "您将语言更换为 %s，可以通过 /language 再次修改语言。"
+    }
+  },
+  "tips": {
+    "changecity": "你将在下次重生或使用/kill时改变城市。"
+  }
+}
