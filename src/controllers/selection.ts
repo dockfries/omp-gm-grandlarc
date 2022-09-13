@@ -21,7 +21,7 @@ import {
   txtSanFierro,
 } from "./textdraw";
 
-export const ClassSel_SetupCharSelection = (p: Player): void => {
+export const ClassSel_SetupCharSelection = (p: Player): number => {
   const { id: playerid } = p;
   switch (p.citySelection.selectedCity) {
     case CityEnum.LOS_SANTOS:
@@ -64,6 +64,7 @@ export const ClassSel_SetupCharSelection = (p: Player): void => {
       );
       break;
   }
+  return 1;
 };
 
 export const ClassSel_HandleCitySelection = (p: Player): void => {

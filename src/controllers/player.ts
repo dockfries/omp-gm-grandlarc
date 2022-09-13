@@ -89,17 +89,18 @@ OnPlayerDeath((player: SampPlayer, killer: SampPlayer): void => {
   ResetPlayerMoney(player.playerid);
 });
 
-OnPlayerRequestClass((player: SampPlayer): void => {
+OnPlayerRequestClass((player: SampPlayer): number => {
+  if (IsPlayerNPC(player.playerid)) return 0;
   const p = Player.Players.get(player.playerid);
-  if (!p) return;
+  if (!p) return 0;
   const { id } = p;
-  if (IsPlayerNPC(id)) return;
   if (p.citySelection.hasSelected) return ClassSel_SetupCharSelection(p);
   if (GetPlayerState(id) != PLAYER_STATE.SPECTATING) {
     TogglePlayerSpectating(id, 1);
     TextDrawShowForPlayer(id, txtClassSelHelper);
     p.citySelection.selectedCity = CityEnum.NONE;
   }
+  return 0;
 });
 
 OnPlayerSpawn((player: SampPlayer): void => {
