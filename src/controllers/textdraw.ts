@@ -1,42 +1,52 @@
 import { ColorEnum } from "@/enums/color";
+import { MyTextDraw } from "@/models/textdraw";
 
-export let txtLosSantos: number = -1;
-export let txtSanFierro: number = -1;
-export let txtLasVenturas: number = -1;
-export let txtClassSelHelper: number = -1;
+export const losSantosTD = new MyTextDraw({
+  x: 10.0,
+  y: 380.0,
+  text: "Los Santos",
+});
+export const sanFierroTD = new MyTextDraw({
+  x: 10.0,
+  y: 380.0,
+  text: "San Fierro",
+});
+export const lasVenturasTD = new MyTextDraw({
+  x: 10.0,
+  y: 380.0,
+  text: "Las Venturas",
+});
 
-export const ClassSel_InitTextDraws = (): void => {
-  // Init our observer helper text display
-  txtLosSantos = TextDrawCreate(10.0, 380.0, "Los Santos");
-  ClassSel_InitCityNameText(txtLosSantos);
-  txtSanFierro = TextDrawCreate(10.0, 380.0, "San Fierro");
-  ClassSel_InitCityNameText(txtSanFierro);
-  txtLasVenturas = TextDrawCreate(10.0, 380.0, "Las Venturas");
-  ClassSel_InitCityNameText(txtLasVenturas);
-
-  // Init our observer helper text display
-  txtClassSelHelper = TextDrawCreate(
-    10.0,
-    415.0,
-    " Press ~b~~k~~GO_LEFT~ ~w~or ~b~~k~~GO_RIGHT~ ~w~to switch cities.~n~ Press ~r~~k~~PED_FIREWEAPON~ ~w~to select."
-  );
-  TextDrawUseBox(txtClassSelHelper, 1);
-  TextDrawBoxColor(txtClassSelHelper, ColorEnum.LightBlack);
-  TextDrawLetterSize(txtClassSelHelper, 0.3, 1.0);
-  TextDrawTextSize(txtClassSelHelper, 400.0, 40.0);
-  TextDrawFont(txtClassSelHelper, 2);
-  TextDrawSetShadow(txtClassSelHelper, 0);
-  TextDrawSetOutline(txtClassSelHelper, 1);
-  TextDrawBackgroundColor(txtClassSelHelper, ColorEnum.Black);
-  TextDrawColor(txtClassSelHelper, ColorEnum.White);
-};
+export const classSelHelperTD = new MyTextDraw({
+  x: 10.0,
+  y: 415.0,
+  text: "Press ~b~~k~~GO_LEFT~ ~w~or ~b~~k~~GO_RIGHT~ ~w~to switch cities.~n~ Press ~r~~k~~PED_FIREWEAPON~ ~w~to select.",
+});
 
 // Used to init textdraws of city names
-const ClassSel_InitCityNameText = (txtInit: number) => {
-  TextDrawUseBox(txtInit, 0);
-  TextDrawLetterSize(txtInit, 1.25, 3.0);
-  TextDrawFont(txtInit, 0);
-  TextDrawSetShadow(txtInit, 0);
-  TextDrawSetOutline(txtInit, 1);
-  TextDrawColor(txtInit, ColorEnum.Gray);
+const ClassSel_InitCityNameText = (td: MyTextDraw) => {
+  td.create()
+    ?.useBox(true)
+    ?.setLetterSize(1.25, 3.0)
+    ?.setFont(0)
+    ?.setShadow(0)
+    ?.setOutline(1)
+    ?.setColor(ColorEnum.Gray);
+};
+
+export const ClassSel_InitTextDraws = (): void => {
+  ClassSel_InitCityNameText(losSantosTD);
+  ClassSel_InitCityNameText(sanFierroTD);
+  ClassSel_InitCityNameText(lasVenturasTD);
+  classSelHelperTD
+    .create()
+    ?.useBox(true)
+    ?.setBoxColor(ColorEnum.LightBlack)
+    ?.setLetterSize(0.3, 1.0)
+    ?.setTextSize(400.0, 40.0)
+    ?.setFont(2)
+    ?.setShadow(0)
+    ?.setOutline(1)
+    ?.setBackgroundColor(ColorEnum.Black)
+    ?.setColor(ColorEnum.White);
 };

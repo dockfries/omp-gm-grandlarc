@@ -10,8 +10,7 @@ import { $t } from "./i18n";
 
 // register all commands
 import "@/commands";
-// register all events without gamemode
-import "./events";
+
 import { loadAllStaticVehicles } from "./controllers/vehicle";
 import { ClassSel_InitTextDraws } from "./controllers/textdraw";
 

@@ -2,10 +2,10 @@ import { CityEnum } from "@/enums/city";
 import { MyPlayer } from "@/models/player";
 import { CameraCutStylesEnum, KeysEnum } from "omp-node-lib";
 import {
-  txtClassSelHelper,
-  txtLasVenturas,
-  txtLosSantos,
-  txtSanFierro,
+  classSelHelperTD,
+  lasVenturasTD,
+  losSantosTD,
+  sanFierroTD,
 } from "./textdraw";
 
 export const ClassSel_SetupCharSelection = (p: MyPlayer): number => {
@@ -41,7 +41,6 @@ export const ClassSel_SetupCharSelection = (p: MyPlayer): number => {
 };
 
 export const ClassSel_HandleCitySelection = (p: MyPlayer): void => {
-  const { id: playerid } = p;
   const { keys, leftright: lr } = p.getKeys();
 
   if (p.citySelection.selectedCity === CityEnum.NONE) {
@@ -54,10 +53,10 @@ export const ClassSel_HandleCitySelection = (p: MyPlayer): void => {
 
   if (keys & KeysEnum.FIRE) {
     p.citySelection.hasSelected = true;
-    TextDrawHideForPlayer(playerid, txtClassSelHelper);
-    TextDrawHideForPlayer(playerid, txtLosSantos);
-    TextDrawHideForPlayer(playerid, txtSanFierro);
-    TextDrawHideForPlayer(playerid, txtLasVenturas);
+    classSelHelperTD.hide(p);
+    losSantosTD.hide(p);
+    sanFierroTD.hide(p);
+    lasVenturasTD.hide(p);
     p.toggleSpectating(false);
     return;
   }
@@ -67,7 +66,6 @@ export const ClassSel_HandleCitySelection = (p: MyPlayer): void => {
 };
 
 const ClassSel_SwitchToNextCity = (p: MyPlayer): void => {
-  const { id: playerid } = p;
   p.citySelection.selectedCity++;
   if (p.citySelection.selectedCity > CityEnum.LAS_VENTURAS) {
     p.citySelection.selectedCity = CityEnum.LOS_SANTOS;
@@ -88,16 +86,13 @@ const ClassSel_SwitchToPreviousCity = (p: MyPlayer): void => {
 };
 
 const ClassSel_SetupSelectedCity = (p: MyPlayer) => {
-  const { id: playerid } = p;
-
   if (p.citySelection.selectedCity === CityEnum.NONE) {
     p.citySelection.selectedCity = CityEnum.LOS_SANTOS;
   }
-
-  TextDrawHideForPlayer(playerid, txtLosSantos);
-  TextDrawHideForPlayer(playerid, txtSanFierro);
-  TextDrawHideForPlayer(playerid, txtLasVenturas);
-  SetPlayerInterior(playerid, 0);
+  losSantosTD.hide(p);
+  sanFierroTD.hide(p);
+  lasVenturasTD.hide(p);
+  p.setInterior(0);
 
   switch (p.citySelection.selectedCity) {
     case CityEnum.LOS_SANTOS:
@@ -108,7 +103,7 @@ const ClassSel_SetupSelectedCity = (p: MyPlayer) => {
         47.6167,
         CameraCutStylesEnum.CUT
       );
-      TextDrawShowForPlayer(playerid, txtLosSantos);
+      losSantosTD.show(p);
       break;
     case CityEnum.SAN_FIERRO:
       p.setCameraPos(-1300.8754, 68.0546, 129.4823);
@@ -118,13 +113,13 @@ const ClassSel_SetupSelectedCity = (p: MyPlayer) => {
         132.6589,
         CameraCutStylesEnum.CUT
       );
-      TextDrawShowForPlayer(playerid, txtSanFierro);
+      sanFierroTD.show(p);
       break;
 
     default:
       p.setCameraPos(1310.6155, 1675.9182, 110.739);
       p.setCameraLookAt(2285.2944, 1919.3756, 68.2275, CameraCutStylesEnum.CUT);
-      TextDrawShowForPlayer(playerid, txtLasVenturas);
+      lasVenturasTD.show(p);
       break;
   }
 };

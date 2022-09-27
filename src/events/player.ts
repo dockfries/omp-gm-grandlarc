@@ -1,9 +1,8 @@
-import { chooseLanguage } from "@/commands";
 import {
   ClassSel_HandleCitySelection,
   ClassSel_SetupCharSelection,
 } from "@/controllers/selection";
-import { txtClassSelHelper } from "@/controllers/textdraw";
+import { classSelHelperTD } from "@/controllers/textdraw";
 import { CityEnum } from "@/enums/city";
 import {
   gRandomSpawns_LasVenturas,
@@ -26,6 +25,7 @@ import {
   WeaponEnum,
   WeaponSkillsEnum,
 } from "omp-node-lib";
+import { chooseLanguage } from "@/controllers/dialog";
 
 class MyPlayerEvent extends BasePlayerEvent<MyPlayer> {
   protected newPlayer(playerid: number): MyPlayer {
@@ -47,7 +47,8 @@ class MyPlayerEvent extends BasePlayerEvent<MyPlayer> {
     return 1;
   }
   protected onText(player: MyPlayer, text: string): number {
-    SendClientMessageToAll(
+    MyPlayer.sendClientMessageToAll(
+      this.getPlayersArr(),
       ColorEnum.White,
       `${player.getName()}(${player.id}): ${text}`
     );
@@ -120,6 +121,16 @@ class MyPlayerEvent extends BasePlayerEvent<MyPlayer> {
     oldkeys: KeysEnum
   ): number {
     return 1;
+  }
+  protected onRequestClass(player: MyPlayer): number {
+    if (player.citySelection.hasSelected)
+      return ClassSel_SetupCharSelection(player);
+    if (player.getState() !== PlayerStateEnum.SPECTATING) {
+      player.toggleSpectating(true);
+      classSelHelperTD.show(player);
+      player.citySelection.selectedCity = CityEnum.NONE;
+    }
+    return 0;
   }
   protected onRequestSpawn(player: MyPlayer): number {
     return 1;
@@ -243,14 +254,3 @@ class MyPlayerEvent extends BasePlayerEvent<MyPlayer> {
 }
 
 export const playerEvent = new MyPlayerEvent();
-
-OnPlayerRequestClass((player: MyPlayer): number => {
-  if (player.citySelection.hasSelected)
-    return ClassSel_SetupCharSelection(player);
-  if (player.getState() !== PlayerStateEnum.SPECTATING) {
-    player.toggleSpectating(true);
-    TextDrawShowForPlayer(id, txtClassSelHelper);
-    player.citySelection.selectedCity = CityEnum.NONE;
-  }
-  return 0;
-});

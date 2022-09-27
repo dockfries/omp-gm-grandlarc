@@ -1,2 +1,2 @@
-export * from "./settings";
-export * from "./common";
+import "./settings";
+import "./common";

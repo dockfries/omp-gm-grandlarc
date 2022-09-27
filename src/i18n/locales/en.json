@@ -15,8 +15,5 @@
     "lang": {
       "change": "You are using %s, and you can modify the language again through / language."
     }
-  },
-  "tips": {
-    "changecity": "You will change city the next time you spawn. Or use /kill."
   }
 }

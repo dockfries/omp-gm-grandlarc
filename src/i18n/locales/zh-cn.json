@@ -15,8 +15,5 @@
     "lang": {
       "change": "您将语言更换为 %s，可以通过 /language 再次修改语言。"
     }
-  },
-  "tips": {
-    "changecity": "你将在下次重生或使用/kill时改变城市。"
   }
 }

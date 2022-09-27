@@ -30,7 +30,7 @@ export const loadAllStaticVehicles = async (): Promise<number> => {
             addsiren: false,
           },
           true
-        ); // respawn 30 minutes
+        ).create(); // respawn 30 minutes
         vehicles_loaded++;
       });
     });
