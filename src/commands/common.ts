@@ -1,19 +1,20 @@
 import ColorEnum from "@/enums/color";
-import CmdBus from "@/utils/CmdBus";
-import { SendClientMessage } from "@/utils/helper";
-import { $t } from "@/utils/i18n";
-import { SetPlayerHealth } from "samp-node-lib";
+import { playerEvent } from "@/events/player";
+import { $t } from "@/i18n";
 
-CmdBus.on("kill", function () {
-  SetPlayerHealth(this.id, 0);
+playerEvent.cmdBus.on("kill", function () {
+  this.setHealth(0);
+  return 1;
 });
 
-CmdBus.on("changecity", function () {
+playerEvent.cmdBus.on("changecity", function () {
   this.citySelection.hasSelected = false;
-  SendClientMessage(
+  this.sendClientMessage(
     this,
     ColorEnum.White,
     $t("tips.changecity", [], this.locale)
   );
-  // ForceClassSelection(this.id);
+  this.forceClassSelection();
+  this.toggleSpectating(true);
+  return 1;
 });

@@ -1,16 +1,4 @@
-import ColorEnum from "@/enums/color";
-import {
-  TextDrawBackgroundColor,
-  TextDrawBoxColor,
-  TextDrawColor,
-  TextDrawCreate,
-  TextDrawFont,
-  TextDrawLetterSize,
-  TextDrawSetOutline,
-  TextDrawSetShadow,
-  TextDrawTextSize,
-  TextDrawUseBox,
-} from "samp-node-lib";
+import { ColorEnum } from "@/enums/color";
 
 export let txtLosSantos: number = -1;
 export let txtSanFierro: number = -1;

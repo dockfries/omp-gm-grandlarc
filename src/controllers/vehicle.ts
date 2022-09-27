@@ -1,6 +1,6 @@
+import { MyVehicle } from "@/models/vehicle";
 import fs from "fs";
 import path from "path";
-import { AddStaticVehicleEx } from "samp-node-lib";
 
 const vehicleFiles = path.resolve(__dirname, "../scriptfiles/vehicles");
 
@@ -17,16 +17,19 @@ export const loadAllStaticVehicles = async (): Promise<number> => {
         const realData = vehicle.substring(0, vehicle.indexOf(" ;")).split(",");
         const [vehicletype, SpawnX, SpawnY, SpawnZ, SpawnRot, Color1, Color2] =
           realData;
-        AddStaticVehicleEx(
-          parseInt(vehicletype),
-          parseFloat(SpawnX),
-          parseFloat(SpawnY),
-          parseFloat(SpawnZ),
-          parseFloat(SpawnRot),
-          parseInt(Color1),
-          parseInt(Color2),
-          30 * 60,
-          0
+        new MyVehicle(
+          {
+            modelid: parseInt(vehicletype),
+            x: parseFloat(SpawnX),
+            y: parseFloat(SpawnY),
+            z: parseFloat(SpawnZ),
+            z_angle: parseFloat(SpawnRot),
+            color1: Color1,
+            color2: Color2,
+            respawn_delay: 30 * 60,
+            addsiren: false,
+          },
+          true
         ); // respawn 30 minutes
         vehicles_loaded++;
       });
