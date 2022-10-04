@@ -31,16 +31,14 @@ class MyPlayerEvent extends BasePlayerEvent<MyPlayer> {
   protected newPlayer(playerid: number): MyPlayer {
     return new MyPlayer(playerid);
   }
-  protected onConnect(player: MyPlayer): number {
-    (async () => {
-      await chooseLanguage(player);
-      const gt = new BaseGameText("~w~Grand Larceny", 3000, 4);
-      gt.forPlayer(player);
-      player.sendClientMessage(
-        ColorEnum.White,
-        $t("server.welcome", [player.getName()], player.locale)
-      );
-    })();
+  protected async onConnect(player: MyPlayer): Promise<number> {
+    await chooseLanguage(player);
+    const gt = new BaseGameText("~w~Grand Larceny", 3000, 4);
+    gt.forPlayer(player);
+    player.sendClientMessage(
+      ColorEnum.White,
+      $t("server.welcome", [player.getName()], player.locale)
+    );
     return 1;
   }
   protected onDisconnect(player: MyPlayer, reason: number): number {
