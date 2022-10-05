@@ -22,6 +22,7 @@ import {
   KeysEnum,
   PlayerStateEnum,
   SpecialActionsEnum,
+  TCommonCallback,
   WeaponEnum,
   WeaponSkillsEnum,
 } from "omp-node-lib";
@@ -50,6 +51,18 @@ class MyPlayerEvent extends BasePlayerEvent<MyPlayer> {
       ColorEnum.White,
       `${player.getName()}(${player.id}): ${text}`
     );
+    return 1;
+  }
+  protected onCommandReceived(
+    player: MyPlayer,
+    command: string
+  ): TCommonCallback {
+    return 1;
+  }
+  protected onCommandPerformed(
+    player: MyPlayer,
+    command: string
+  ): TCommonCallback {
     return 1;
   }
   protected onCommandError(
