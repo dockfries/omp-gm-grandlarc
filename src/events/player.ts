@@ -51,7 +51,7 @@ class MyPlayerEvent extends BasePlayerEvent<MyPlayer> {
       ColorEnum.White,
       `${player.getName()}(${player.id}): ${text}`
     );
-    return 1;
+    return 0;
   }
   protected onCommandReceived(
     player: MyPlayer,
