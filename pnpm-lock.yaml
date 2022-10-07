@@ -16,8 +16,8 @@ specifiers:
   iconv-lite: ^0.6.3
   nodemon: ^2.0.19
   npm-run-all: ^4.1.5
-  omp-fs-all: ^0.0.2
-  omp-node-lib: 0.5.3
+  omp-fs-all: 0.0.7
+  omp-node-lib: 0.5.5
   pino: ^8.6.1
   pino-pretty: ^9.1.0
   rimraf: ^3.0.2
@@ -28,8 +28,8 @@ specifiers:
   typescript: ^4.7.4
 
 dependencies:
-  omp-fs-all: 0.0.2
-  omp-node-lib: 0.5.3
+  omp-fs-all: 0.0.7
+  omp-node-lib: 0.5.5
   pino: 8.6.1
   pino-pretty: 9.1.0
 
@@ -1503,14 +1503,14 @@ packages:
       object-keys: 1.1.1
     dev: true
 
-  /omp-fs-all/0.0.2:
-    resolution: {integrity: sha512-K4ACzxocHsD962SB1jqzykYHjlx75lDocJILLahKXxZMx0HFIZiD1JuTKaj9lXYWPqcQ8BIdatNblS88kql0Vw==}
+  /omp-fs-all/0.0.7:
+    resolution: {integrity: sha512-yis8kCi2VST5uDrX898tQpJTkwT8YNfLjTauy/ffgpMQO/co6LuanDRH/OpqKaszSCEPks0kxTjHgd1QCdMF9Q==}
     dependencies:
-      omp-node-lib: 0.5.3
+      omp-node-lib: 0.5.5
     dev: false
 
-  /omp-node-lib/0.5.3:
-    resolution: {integrity: sha512-seyBTmQvFSKIgx8gPdV9t/irH5BoNPX0X4mu/KJR3rgTGe7zYwbWS8pcmrwOSnFp9lXDksUlLGIBcN6R5kd4ZQ==}
+  /omp-node-lib/0.5.5:
+    resolution: {integrity: sha512-6zhnEPwZB6XS3Kle1A33idxSs9UX3T1qnivrMatybLoc4oaZ8SWYIkrsJwRQp1D6ohN8UYeL2967puSmKQpbag==}
     dependencies:
       iconv-lite: 0.6.3
       lodash: 4.17.21
