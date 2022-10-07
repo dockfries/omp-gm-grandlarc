@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "omp-fs-all": "^0.0.1",
-    "omp-node-lib": "0.5.1",
+    "omp-node-lib": "0.5.3",
     "pino": "^8.6.1",
     "pino-pretty": "^9.1.0"
   },
