@@ -31,7 +31,8 @@
     "url": "https://github.com/YuCarl77/omp-gm-grandlarc/issues"
   },
   "dependencies": {
-    "omp-node-lib": "0.5.0",
+    "omp-fs-all": "^0.0.1",
+    "omp-node-lib": "0.5.1",
     "pino": "^8.6.1",
     "pino-pretty": "^9.1.0"
   },

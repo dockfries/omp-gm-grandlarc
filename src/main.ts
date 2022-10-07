@@ -13,6 +13,8 @@ import "@/commands";
 
 import { loadAllStaticVehicles } from "./controllers/vehicle";
 import { ClassSel_InitTextDraws } from "./controllers/textdraw";
+import { playerEvent } from "./events/player";
+import { useA51BaseFS } from "omp-fs-all";
 
 class MyGameMode extends BaseGameMode {
   protected onInit(): void {
@@ -82,4 +84,4 @@ const AddPlayerClassList = (): void => {
   });
 };
 
-new MyGameMode();
+new MyGameMode().use(useA51BaseFS(), { playerEvent });
