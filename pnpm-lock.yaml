@@ -16,7 +16,7 @@ specifiers:
   iconv-lite: ^0.6.3
   nodemon: ^2.0.19
   npm-run-all: ^4.1.5
-  omp-fs-all: ^0.0.1
+  omp-fs-all: ^0.0.2
   omp-node-lib: 0.5.3
   pino: ^8.6.1
   pino-pretty: ^9.1.0
@@ -28,7 +28,7 @@ specifiers:
   typescript: ^4.7.4
 
 dependencies:
-  omp-fs-all: 0.0.1
+  omp-fs-all: 0.0.2
   omp-node-lib: 0.5.3
   pino: 8.6.1
   pino-pretty: 9.1.0
@@ -1503,21 +1503,10 @@ packages:
       object-keys: 1.1.1
     dev: true
 
-  /omp-fs-all/0.0.1:
-    resolution: {integrity: sha512-PVARUxcrBXfcmZeV3LmIfqawWV/zaEAgexfku1H0JczRBRUZiekRsqvJ2/S3EulKVWOIcW0SALqzcMMqrk3VbA==}
+  /omp-fs-all/0.0.2:
+    resolution: {integrity: sha512-K4ACzxocHsD962SB1jqzykYHjlx75lDocJILLahKXxZMx0HFIZiD1JuTKaj9lXYWPqcQ8BIdatNblS88kql0Vw==}
     dependencies:
-      omp-node-lib: 0.5.1
-    dev: false
-
-  /omp-node-lib/0.5.1:
-    resolution: {integrity: sha512-vszdK1H6IRD9wRjWvlYqP52+GlIqzcJZwhyAQ9/7S9pUsBR3f5suZ8RmU3oSagZaby6TV210UVdcKK8fnDtsxg==}
-    dependencies:
-      iconv-lite: 0.6.3
-      lodash: 4.17.21
-      omp-wrapper: 0.1.4
-      omp-wrapper-streamer: 0.1.5
-      pino: 8.6.1
-      pino-pretty: 9.1.0
+      omp-node-lib: 0.5.3
     dev: false
 
   /omp-node-lib/0.5.3:
@@ -1529,10 +1518,6 @@ packages:
       omp-wrapper-streamer: 0.1.6
       pino: 8.6.1
       pino-pretty: 9.1.0
-    dev: false
-
-  /omp-wrapper-streamer/0.1.5:
-    resolution: {integrity: sha512-I8+4Gkj6F/2mHx5FrUsgTH9uNIrc7bg0vAVdZYiAnZuSFKWU5Wr3T6z9v/r/fxa2b+KFlhYyaQFhHb8zog54DA==}
     dev: false
 
   /omp-wrapper-streamer/0.1.6:

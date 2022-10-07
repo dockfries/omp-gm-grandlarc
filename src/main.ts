@@ -84,4 +84,4 @@ const AddPlayerClassList = (): void => {
   });
 };
 
-new MyGameMode().use(useA51BaseFS(), { playerEvent });
+new MyGameMode().use(useA51BaseFS({ playerEvent }));
