@@ -1,3 +1,4 @@
+import { vehicleEvent } from "@/events/vehicle";
 import { MyVehicle } from "@/models/vehicle";
 import fs from "fs";
 import path from "path";
@@ -29,6 +30,7 @@ export const loadAllStaticVehicles = async (): Promise<number> => {
             respawn_delay: 30 * 60,
             addsiren: false,
           },
+          vehicleEvent,
           true
         ).create(); // respawn 30 minutes
         vehicles_loaded++;
