@@ -14,6 +14,7 @@ import "@/commands";
 import { loadAllStaticVehicles } from "./controllers/vehicle";
 import { ClassSel_InitTextDraws } from "./controllers/textdraw";
 import { playerEvent } from "./events/player";
+import "@/events/textdraw";
 import { useA51BaseFS } from "omp-fs-all";
 
 class MyGameMode extends BaseGameMode {

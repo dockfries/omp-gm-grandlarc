@@ -83,4 +83,4 @@ class MyVehicleEvent extends BaseVehicleEvent<MyPlayer, BaseVehicle> {
   }
 }
 
-export const vehicleEvent = new MyVehicleEvent(playerEvent.getPlayersMap());
+new MyVehicleEvent(playerEvent.getPlayersMap());
