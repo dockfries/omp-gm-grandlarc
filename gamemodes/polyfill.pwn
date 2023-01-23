@@ -3,8 +3,7 @@
 	Author: YuCarl77
 */
 
-#include <a_samp>
-#include <omp>
+#include <open.mp>
 #include <streamer>
 #include <samp-node>
 
@@ -39,4 +38,3 @@ public OnRconCommand(cmd[]) {
 public OnRconLoginAttempt(ip[], password[], success) {
     return SAMPNode_CallEvent("OnRconLoginAttemptI18n", ip, strlen(ip), password, strlen(password), success);
 }
-
