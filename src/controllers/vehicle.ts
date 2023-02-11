@@ -5,7 +5,7 @@ import path from "path";
 
 const vehicleFiles = path.resolve(__dirname, "../scriptfiles/vehicles");
 
-export const loadAllStaticVehicles = async (): Promise<number> => {
+export const loadAllStaticVehicles = async () => {
   try {
     const files = fs.readdirSync(vehicleFiles);
     const promiseList = files.map((fileName) => {
@@ -24,8 +24,8 @@ export const loadAllStaticVehicles = async (): Promise<number> => {
           y: parseFloat(SpawnY),
           z: parseFloat(SpawnZ),
           z_angle: parseFloat(SpawnRot),
-          color1: +Color1,
-          color2: +Color2,
+          colour1: +Color1,
+          colour2: +Color2,
           respawn_delay: 30 * 60,
           addsiren: false,
         }).create(); // respawn 30 minutes

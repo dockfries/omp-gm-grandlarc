@@ -8,7 +8,7 @@ class MyTextDrawEvent extends BaseTextDrawEvent<MyPlayer, MyTextDraw> {
     player: MyPlayer,
     textdraw: MyTextDraw | InvalidEnum.PLAYER_ID
   ): TCommonCallback {
-    return 1;
+    return true;
   }
 }
 

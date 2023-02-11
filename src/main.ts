@@ -13,12 +13,11 @@ import "@/commands";
 
 import { loadAllStaticVehicles } from "./controllers/vehicle";
 import { ClassSel_InitTextDraws } from "./controllers/textdraw";
-import { playerEvent } from "./events/player";
 import "@/events/textdraw";
 import { useA51BaseFS } from "omp-fs-all";
 
 class MyGameMode extends BaseGameMode {
-  protected onInit(): void {
+  onInit() {
     MyGameMode.setGameModeText("Grand Larceny");
     MyGameMode.showPlayerMarkers(MarkerModesEnum.GLOBAL);
     MyGameMode.showNameTags(true);
@@ -35,24 +34,6 @@ class MyGameMode extends BaseGameMode {
     console.log("\n---------------------------------------");
     console.log($t("server.running"));
     console.log("---------------------------------------\n");
-  }
-  protected onExit(): void {}
-  protected onIncomingConnection(
-    playerid: number,
-    ipAddress: string,
-    port: number
-  ): number {
-    return 1;
-  }
-  protected onRconCommand(cmd: string): number {
-    return 1;
-  }
-  protected onRconLoginAttempt(
-    ip: string,
-    password: string,
-    success: boolean
-  ): number {
-    return 1;
   }
 }
 
@@ -85,4 +66,4 @@ const AddPlayerClassList = (): void => {
   });
 };
 
-new MyGameMode().use(useA51BaseFS({ playerEvent }));
+new MyGameMode().use(useA51BaseFS());

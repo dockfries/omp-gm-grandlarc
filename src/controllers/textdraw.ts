@@ -31,7 +31,7 @@ const ClassSel_InitCityNameText = (td: MyTextDraw) => {
     ?.setFont(0)
     ?.setShadow(0)
     ?.setOutline(1)
-    ?.setColor(ColorEnum.Gray);
+    ?.setColour(ColorEnum.Gray);
 };
 
 export const ClassSel_InitTextDraws = (): void => {
@@ -41,12 +41,12 @@ export const ClassSel_InitTextDraws = (): void => {
   classSelHelperTD
     .create()
     ?.useBox(true)
-    ?.setBoxColor(ColorEnum.LightBlack)
+    ?.setBoxColours(ColorEnum.LightBlack)
     ?.setLetterSize(0.3, 1.0)
     ?.setTextSize(400.0, 40.0)
     ?.setFont(2)
     ?.setShadow(0)
     ?.setOutline(1)
-    ?.setBackgroundColor(ColorEnum.Black)
-    ?.setColor(ColorEnum.White);
+    ?.setBackgroundColours(ColorEnum.Black)
+    ?.setColour(ColorEnum.White);
 };

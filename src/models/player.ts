@@ -1,5 +1,5 @@
 import { CityEnum } from "@/enums/city";
-import { BaseGameMode, BasePlayer, IPlayerSettings } from "omp-node-lib";
+import { BaseGameMode, BasePlayer } from "omp-node-lib";
 
 // Class selection globals
 interface ICitySelection {
@@ -9,7 +9,6 @@ interface ICitySelection {
 }
 
 export class MyPlayer extends BasePlayer {
-  public settings: IPlayerSettings = { charset: BaseGameMode.charset };
   public citySelection: ICitySelection = {
     // class selection init vars
     selectedCity: CityEnum.LOS_SANTOS,

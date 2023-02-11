@@ -7,24 +7,24 @@ class MyVehicleEvent extends BaseVehicleEvent<MyPlayer, BaseVehicle> {
     vehicle: BaseVehicle,
     player: MyPlayer
   ): TCommonCallback {
-    return 1;
+    return true;
   }
   protected onDeath(vehicle: BaseVehicle, killer: MyPlayer): TCommonCallback {
-    return 1;
+    return true;
   }
   protected onMod(
     player: MyPlayer,
     vehicle: BaseVehicle,
     componentid: number
   ): TCommonCallback {
-    return 1;
+    return true;
   }
   protected onPaintjob(
     player: MyPlayer,
     vehicle: BaseVehicle,
     paintjobid: number
   ): TCommonCallback {
-    return 1;
+    return true;
   }
   protected onRespray(
     player: MyPlayer,
@@ -32,54 +32,54 @@ class MyVehicleEvent extends BaseVehicleEvent<MyPlayer, BaseVehicle> {
     color1: number,
     color2: number
   ): TCommonCallback {
-    return 1;
+    return true;
   }
   protected onSirenStateChange(
     player: MyPlayer,
     vehicle: BaseVehicle,
     newstate: boolean
   ): TCommonCallback {
-    return 1;
+    return true;
   }
   protected onSpawn(vehicle: BaseVehicle): TCommonCallback {
-    return 1;
+    return true;
   }
   protected onStreamIn(
     vehicle: BaseVehicle,
     forplayer: MyPlayer
   ): TCommonCallback {
-    return 1;
+    return true;
   }
   protected onStreamOut(
     vehicle: BaseVehicle,
     forplayer: MyPlayer
   ): TCommonCallback {
-    return 1;
+    return true;
   }
   protected onPlayerEnter(
     player: MyPlayer,
     vehicle: BaseVehicle,
     isPassenger: boolean
   ): TCommonCallback {
-    return 1;
+    return true;
   }
   protected onPlayerExit(
     player: MyPlayer,
     vehicle: BaseVehicle
   ): TCommonCallback {
-    return 1;
+    return true;
   }
   protected onNpcEnter(vehicle: BaseVehicle, seatid: number): TCommonCallback {
-    return 1;
+    return true;
   }
   protected onNpcExit(): TCommonCallback {
-    return 1;
+    return true;
   }
   protected onTrailerUpdate(
     player: MyPlayer,
     vehicle: BaseVehicle
   ): TCommonCallback {
-    return 1;
+    return true;
   }
 }
 

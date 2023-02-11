@@ -16,23 +16,17 @@ import { MyPlayer } from "@/models/player";
 import {
   BaseGameText,
   BasePlayerEvent,
-  BodyPartsEnum,
   ICmdErr,
   InvalidEnum,
-  KeysEnum,
   PlayerStateEnum,
   SpecialActionsEnum,
-  TCommonCallback,
   WeaponEnum,
   WeaponSkillsEnum,
 } from "omp-node-lib";
 import { chooseLanguage } from "@/controllers/dialog";
 
 class MyPlayerEvent extends BasePlayerEvent<MyPlayer> {
-  protected newPlayer(playerid: number): MyPlayer {
-    return new MyPlayer(playerid);
-  }
-  protected async onConnect(player: MyPlayer): Promise<number> {
+  async onConnect(player: MyPlayer) {
     await chooseLanguage(player);
     const gt = new BaseGameText("~w~Grand Larceny", 3000, 4);
     gt.forPlayer(player);
@@ -40,36 +34,17 @@ class MyPlayerEvent extends BasePlayerEvent<MyPlayer> {
       ColorEnum.White,
       $t("server.welcome", [player.getName()], player.locale)
     );
-    return 1;
+    return true;
   }
-  protected onDisconnect(player: MyPlayer, reason: number): number {
-    return 1;
-  }
-  protected onText(player: MyPlayer, text: string): number {
+  onText(player: MyPlayer, text: string) {
     MyPlayer.sendClientMessageToAll(
       this.getPlayersArr(),
       ColorEnum.White,
       `${player.getName()}(${player.id}): ${text}`
     );
-    return 0;
+    return false;
   }
-  protected onCommandReceived(
-    player: MyPlayer,
-    command: string
-  ): TCommonCallback {
-    return 1;
-  }
-  protected onCommandPerformed(
-    player: MyPlayer,
-    command: string
-  ): TCommonCallback {
-    return 1;
-  }
-  protected onCommandError(
-    player: MyPlayer,
-    command: string,
-    err: ICmdErr
-  ): number {
+  onCommandError(player: MyPlayer, command: string, err: ICmdErr) {
     player.sendClientMessage(
       ColorEnum.White,
       $t(
@@ -78,62 +53,20 @@ class MyPlayerEvent extends BasePlayerEvent<MyPlayer> {
         player.locale
       )
     );
-    return 1;
+    return true;
   }
-  protected onEnterExitModShop(
-    player: MyPlayer,
-    enterexit: number,
-    interiorid: number
-  ): number {
-    return 1;
-  }
-  protected onClickMap(
-    player: MyPlayer,
-    fX: number,
-    fY: number,
-    fZ: number
-  ): number {
-    return 1;
-  }
-  protected onClickPlayer(
-    player: MyPlayer,
-    clickedPlayer: MyPlayer,
-    source: number
-  ): number {
-    return 1;
-  }
-  protected onDeath(
-    player: MyPlayer,
-    killer: MyPlayer | InvalidEnum.PLAYER_ID,
-    reason: number
-  ): number {
+  onDeath(player: MyPlayer, killer: MyPlayer | InvalidEnum.PLAYER_ID) {
     if (killer === InvalidEnum.PLAYER_ID) {
       player.resetMoney();
-      return 1;
+      return true;
     }
     const playercash = player.getMoney();
-    if (playercash <= 0) return 1;
+    if (playercash <= 0) return true;
     killer.giveMoney(playercash);
     player.resetMoney();
-    return 1;
+    return true;
   }
-  protected onGiveDamage(
-    player: MyPlayer,
-    damage: MyPlayer,
-    amount: number,
-    weaponid: WeaponEnum,
-    bodypart: BodyPartsEnum
-  ): number {
-    return 1;
-  }
-  protected onKeyStateChange(
-    player: MyPlayer,
-    newkeys: KeysEnum,
-    oldkeys: KeysEnum
-  ): number {
-    return 1;
-  }
-  protected onRequestClass(player: MyPlayer): number {
+  onRequestClass(player: MyPlayer) {
     if (player.citySelection.hasSelected)
       return ClassSel_SetupCharSelection(player);
     if (player.getState() !== PlayerStateEnum.SPECTATING) {
@@ -141,13 +74,10 @@ class MyPlayerEvent extends BasePlayerEvent<MyPlayer> {
       classSelHelperTD.show(player);
       player.citySelection.selectedCity = CityEnum.NONE;
     }
-    return 0;
+    return false;
   }
-  protected onRequestSpawn(player: MyPlayer): number {
-    return 1;
-  }
-  protected onSpawn(player: MyPlayer): number {
-    if (player.isNpc()) return 1;
+  onSpawn(player: MyPlayer) {
+    if (player.isNpc()) return true;
     player.setInterior(0);
     player.toggleClock(false);
     player.resetMoney();
@@ -182,86 +112,38 @@ class MyPlayerEvent extends BasePlayerEvent<MyPlayer> {
     player.setSkillLevel(WeaponSkillsEnum.M4, 200);
     player.setSkillLevel(WeaponSkillsEnum.SNIPERRIFLE, 200);
     player.giveWeapon(WeaponEnum.COLT45, 100);
-    return 1;
+    return true;
   }
-  protected onStateChange(
-    player: MyPlayer,
-    newstate: PlayerStateEnum,
-    oldstate: PlayerStateEnum
-  ): number {
-    return 1;
-  }
-  protected onStreamIn(player: MyPlayer, forPlayer: MyPlayer): number {
-    return 1;
-  }
-  protected onStreamOut(player: MyPlayer, forPlayer: MyPlayer): number {
-    return 1;
-  }
-  protected onTakeDamage(
-    player: MyPlayer,
-    damage: MyPlayer | InvalidEnum.PLAYER_ID,
-    amount: number,
-    weaponid: WeaponEnum,
-    bodypart: BodyPartsEnum
-  ): number {
-    return 1;
-  }
-  protected onUpdate(player: MyPlayer): number {
+  onUpdate(player: MyPlayer) {
     // changing cities by inputs
     if (
       !player.citySelection.hasSelected &&
       player.getState() === PlayerStateEnum.SPECTATING
     ) {
       ClassSel_HandleCitySelection(player);
-      return 1;
+      return true;
     }
 
     // No weapons in interiors
     if (player.getInterior() && player.getWeapon()) {
       player.setArmedWeapon(0); // fists
-      return 0; // no syncing until they change their weapon
+      return false; // no syncing until they change their weapon
     }
 
     // Don't allow minigun
     if (player.getWeapon() === WeaponEnum.MINIGUN) {
       player.kick();
-      return 0;
+      return false;
     }
 
     // No jetpacks allowed
     if (player.getSpecialAction() === SpecialActionsEnum.USEJETPACK) {
       player.kick();
-      return 0;
+      return false;
     }
 
-    return 1;
-  }
-  protected onInteriorChange(
-    player: MyPlayer,
-    newinteriorid: number,
-    oldinteriorid: number
-  ): number {
-    return 1;
-  }
-  protected onPause(player: MyPlayer, timestamp: number): number {
-    return 1;
-  }
-  protected onResume(player: MyPlayer, pauseMs: number): number {
-    return 1;
-  }
-  protected onRequestDownload(
-    player: MyPlayer,
-    type: number,
-    crc: number
-  ): number {
-    return 1;
-  }
-  protected onFinishedDownloading(
-    player: MyPlayer,
-    virtualworld: number
-  ): number {
-    return 1;
+    return true;
   }
 }
 
-export const playerEvent = new MyPlayerEvent();
+export const playerEvent = new MyPlayerEvent((id) => new MyPlayer(id));

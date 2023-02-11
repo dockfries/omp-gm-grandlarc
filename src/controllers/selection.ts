@@ -8,7 +8,7 @@ import {
   sanFierroTD,
 } from "./textdraw";
 
-export const ClassSel_SetupCharSelection = (p: MyPlayer): number => {
+export const ClassSel_SetupCharSelection = (p: MyPlayer) => {
   switch (p.citySelection.selectedCity) {
     case CityEnum.LOS_SANTOS:
       p.setInterior(11);
@@ -37,7 +37,7 @@ export const ClassSel_SetupCharSelection = (p: MyPlayer): number => {
       p.setCameraLookAt(349.0453, 193.2271, 1014.1797, CameraCutStylesEnum.CUT);
       break;
   }
-  return 1;
+  return true;
 };
 
 export const ClassSel_HandleCitySelection = (p: MyPlayer): void => {

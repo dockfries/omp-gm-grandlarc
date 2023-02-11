@@ -2,7 +2,7 @@ import { playerEvent } from "@/events/player";
 
 playerEvent.onCommandText("kill", function (player) {
   player.setHealth(0);
-  return 1;
+  return true;
 });
 
 playerEvent.onCommandText("changecity", function (player) {
@@ -10,5 +10,5 @@ playerEvent.onCommandText("changecity", function (player) {
   player.forceClassSelection();
   player.toggleSpectating(true);
   player.toggleSpectating(false);
-  return 1;
+  return true;
 });
