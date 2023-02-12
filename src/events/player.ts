@@ -76,6 +76,9 @@ class MyPlayerEvent extends BasePlayerEvent<MyPlayer> {
     }
     return false;
   }
+  onRequestSpawn() {
+    return true;
+  }
   onSpawn(player: MyPlayer) {
     if (player.isNpc()) return true;
     player.setInterior(0);
@@ -100,17 +103,20 @@ class MyPlayerEvent extends BasePlayerEvent<MyPlayer> {
     const [x, y, z, a]: number[] = whichCitySpawn[rand];
     player.setPos(x, y, z);
     player.setFacingAngle(a);
-    player.setSkillLevel(WeaponSkillsEnum.PISTOL, 200);
-    player.setSkillLevel(WeaponSkillsEnum.PISTOL_SILENCED, 200);
-    player.setSkillLevel(WeaponSkillsEnum.DESERT_EAGLE, 200);
-    player.setSkillLevel(WeaponSkillsEnum.SHOTGUN, 200);
-    player.setSkillLevel(WeaponSkillsEnum.SAWNOFF_SHOTGUN, 200);
-    player.setSkillLevel(WeaponSkillsEnum.SPAS12_SHOTGUN, 200);
-    player.setSkillLevel(WeaponSkillsEnum.MICRO_UZI, 200);
-    player.setSkillLevel(WeaponSkillsEnum.MP5, 200);
-    player.setSkillLevel(WeaponSkillsEnum.AK47, 200);
-    player.setSkillLevel(WeaponSkillsEnum.M4, 200);
-    player.setSkillLevel(WeaponSkillsEnum.SNIPERRIFLE, 200);
+    const skills = [
+      WeaponSkillsEnum.PISTOL,
+      WeaponSkillsEnum.PISTOL_SILENCED,
+      WeaponSkillsEnum.DESERT_EAGLE,
+      WeaponSkillsEnum.SHOTGUN,
+      WeaponSkillsEnum.SAWNOFF_SHOTGUN,
+      WeaponSkillsEnum.SPAS12_SHOTGUN,
+      WeaponSkillsEnum.MICRO_UZI,
+      WeaponSkillsEnum.MP5,
+      WeaponSkillsEnum.AK47,
+      WeaponSkillsEnum.M4,
+      WeaponSkillsEnum.SNIPERRIFLE,
+    ];
+    skills.forEach((s) => player.setSkillLevel(s, 200));
     player.giveWeapon(WeaponEnum.COLT45, 100);
     return true;
   }

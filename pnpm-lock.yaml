@@ -16,7 +16,7 @@ specifiers:
   iconv-lite: ^0.6.3
   nodemon: ^2.0.20
   npm-run-all: ^4.1.5
-  omp-fs-all: ^0.2.0
+  omp-fs-all: ^0.2.1
   omp-node-lib: ^0.8.1
   pino: ^8.10.0
   pino-pretty: ^9.2.0
@@ -28,7 +28,7 @@ specifiers:
   typescript: ^4.9.5
 
 dependencies:
-  omp-fs-all: 0.2.0
+  omp-fs-all: 0.2.1
   omp-node-lib: 0.8.1
   pino: 8.10.0
   pino-pretty: 9.2.0
@@ -1746,8 +1746,8 @@ packages:
       object-keys: 1.1.1
     dev: true
 
-  /omp-fs-all/0.2.0:
-    resolution: {integrity: sha512-qlwgW92WNxpyqfnVFMUldBlnR5v8tPz7tU0WWXbdXGXNATPs/4CNTFjGj2xeOn9lDGYO8PewjQZUP+GHsqrZ1A==}
+  /omp-fs-all/0.2.1:
+    resolution: {integrity: sha512-MthpbMwAPJwS2ZxMm365mBC2zLZUdJmDrFih+8eRFA4KsgLmInEYuXPuywWKU32CW1+y+hqIVQ1Q9iBa6T01VA==}
     dependencies:
       omp-node-lib: 0.8.1
     dev: false
