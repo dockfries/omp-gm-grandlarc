@@ -15,7 +15,6 @@ import { loadAllStaticVehicles } from "./controllers/vehicle";
 import { ClassSel_InitTextDraws } from "./controllers/textdraw";
 import "@/events/textdraw";
 import { useA51BaseFS, useAdminSpecFs } from "omp-fs-all";
-import { playerEvent } from "./events/player";
 
 class MyGameMode extends BaseGameMode {
   onInit() {
@@ -67,6 +66,4 @@ const AddPlayerClassList = (): void => {
   });
 };
 
-new MyGameMode()
-  .use(useAdminSpecFs())
-  .use(useA51BaseFS({ playerEvent, debug: true }));
+new MyGameMode().use(useAdminSpecFs()).use(useA51BaseFS({ debug: true }));
