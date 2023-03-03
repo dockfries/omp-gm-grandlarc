@@ -11,12 +11,12 @@
     "gamemode",
     "samp-node"
   ],
-  "homepage": "https://github.com/YuCarl77/omp-gm-grandlarc#readme",
+  "homepage": "https://github.com/dockfries/omp-gm-grandlarc#readme",
   "bugs": {
-    "url": "https://github.com/YuCarl77/omp-gm-grandlarc/issues"
+    "url": "https://github.com/dockfries/omp-gm-grandlarc/issues"
   },
   "license": "ISC",
-  "author": "YuCarl77",
+  "author": "dockfries",
   "scripts": {
     "serve": "omp-server",
     "dev": "npm-run-all -p -r -l dev:server dev:watch",
