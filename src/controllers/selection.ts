@@ -1,6 +1,6 @@
 import { CityEnum } from "@/enums/city";
 import { MyPlayer } from "@/models/player";
-import { CameraCutStylesEnum, KeysEnum } from "omp-node-lib";
+import { CameraCutStylesEnum, KeysEnum } from "@infernus/core";
 import {
   classSelHelperTD,
   lasVenturasTD,

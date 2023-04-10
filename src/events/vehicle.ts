@@ -1,7 +1,7 @@
 import { MyPlayer } from "@/models/player";
-import { BaseVehicle, BaseVehicleEvent } from "omp-node-lib";
+import { Vehicle, VehicleEvent } from "@infernus/core";
 import { playerEvent } from "./player";
 
-class MyVehicleEvent extends BaseVehicleEvent<MyPlayer, BaseVehicle> {}
+class MyVehicleEvent extends VehicleEvent<MyPlayer, Vehicle> {}
 
 new MyVehicleEvent(playerEvent.getPlayersMap());

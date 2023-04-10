@@ -1,5 +1,5 @@
 import { CityEnum } from "@/enums/city";
-import { BaseGameMode, BasePlayer } from "omp-node-lib";
+import { GameMode, Player } from "@infernus/core";
 
 // Class selection globals
 interface ICitySelection {
@@ -8,7 +8,7 @@ interface ICitySelection {
   lastSelTime: number;
 }
 
-export class MyPlayer extends BasePlayer {
+export class MyPlayer extends Player {
   public citySelection: ICitySelection = {
     // class selection init vars
     selectedCity: CityEnum.LOS_SANTOS,

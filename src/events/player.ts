@@ -14,21 +14,21 @@ import { ColorEnum } from "@/enums/color";
 import { $t } from "@/i18n";
 import { MyPlayer } from "@/models/player";
 import {
-  BaseGameText,
-  BasePlayerEvent,
+  GameText,
+  PlayerEvent,
   ICmdErr,
   InvalidEnum,
   PlayerStateEnum,
   SpecialActionsEnum,
   WeaponEnum,
   WeaponSkillsEnum,
-} from "omp-node-lib";
+} from "@infernus/core";
 import { chooseLanguage } from "@/controllers/dialog";
 
-class MyPlayerEvent extends BasePlayerEvent<MyPlayer> {
+class MyPlayerEvent extends PlayerEvent<MyPlayer> {
   async onConnect(player: MyPlayer) {
     await chooseLanguage(player);
-    const gt = new BaseGameText("~w~Grand Larceny", 3000, 4);
+    const gt = new GameText("~w~Grand Larceny", 3000, 4);
     gt.forPlayer(player);
     player.sendClientMessage(
       ColorEnum.White,

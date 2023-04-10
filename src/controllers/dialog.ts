@@ -3,7 +3,7 @@ import { CharsetEnum, LanguageEnum } from "@/enums/language";
 import { $t, locales, localesTitle } from "@/i18n";
 import { MyDialog } from "@/models/dialog";
 import { MyPlayer } from "@/models/player";
-import { DialogStylesEnum } from "omp-node-lib";
+import { DialogStylesEnum } from "@infernus/core";
 
 const chooseLangDialog = new MyDialog({
   style: DialogStylesEnum.LIST,

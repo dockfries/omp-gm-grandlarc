@@ -5,7 +5,7 @@
 //
 //----------------------------------------------------------
 
-import { BaseGameMode, MarkerModesEnum } from "omp-node-lib";
+import { GameMode, MarkerModesEnum } from "@infernus/core";
 import { $t } from "./i18n";
 
 // register all commands
@@ -14,28 +14,27 @@ import "@/commands";
 import { loadAllStaticVehicles } from "./controllers/vehicle";
 import { ClassSel_InitTextDraws } from "./controllers/textdraw";
 import "@/events/textdraw";
-import { useA51BaseFS, useAdminSpecFs } from "omp-fs-all";
+import { useA51BaseFS, useAdminSpecFs } from "@infernus/fs";
 
-class MyGameMode extends BaseGameMode {
-  onInit() {
-    MyGameMode.setGameModeText("Grand Larceny");
-    MyGameMode.showPlayerMarkers(MarkerModesEnum.GLOBAL);
-    MyGameMode.showNameTags(true);
-    MyGameMode.setNameTagDrawDistance(40.0);
-    MyGameMode.enableStuntBonusForAll(false);
-    MyGameMode.disableInteriorEnterExits();
-    MyGameMode.setWeather(2);
-    ClassSel_InitTextDraws();
-    AddPlayerClassList();
-    loadAllStaticVehicles().then((total: number) => {
-      console.log(`Total vehicles from files: ${total}`);
-    });
+const app = new GameMode();
+app.onInit = () => {
+  GameMode.setGameModeText("Grand Larceny");
+  GameMode.showPlayerMarkers(MarkerModesEnum.GLOBAL);
+  GameMode.showNameTags(true);
+  GameMode.setNameTagDrawDistance(40.0);
+  GameMode.enableStuntBonusForAll(false);
+  GameMode.disableInteriorEnterExits();
+  GameMode.setWeather(2);
+  ClassSel_InitTextDraws();
+  AddPlayerClassList();
+  loadAllStaticVehicles().then((total: number) => {
+    console.log(`Total vehicles from files: ${total}`);
+  });
 
-    console.log("\n---------------------------------------");
-    console.log($t("server.running"));
-    console.log("---------------------------------------\n");
-  }
-}
+  console.log("\n---------------------------------------");
+  console.log($t("server.running"));
+  console.log("---------------------------------------\n");
+};
 
 const AddPlayerClassList = (): void => {
   const position = {
@@ -50,7 +49,7 @@ const AddPlayerClassList = (): void => {
     91, 92, 93, 95, 96, 97, 98, 99,
   ];
   classIdList.forEach((modelid: number) => {
-    MyGameMode.addPlayerClass(
+    GameMode.addPlayerClass(
       modelid,
       position.spawn_x,
       position.spawn_y,
@@ -66,4 +65,4 @@ const AddPlayerClassList = (): void => {
   });
 };
 
-new MyGameMode().use(useAdminSpecFs()).use(useA51BaseFS({ debug: true }));
+GameMode.use(useAdminSpecFs()).use(useA51BaseFS({ debug: true }));

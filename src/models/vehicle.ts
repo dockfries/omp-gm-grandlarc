@@ -1,3 +1,3 @@
-import { BaseVehicle } from "omp-node-lib";
+import { Vehicle } from "@infernus/core";
 
-export class MyVehicle extends BaseVehicle {}
+export class MyVehicle extends Vehicle {}

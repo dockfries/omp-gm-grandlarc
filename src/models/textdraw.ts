@@ -1,4 +1,4 @@
-import { BaseTextDraw } from "omp-node-lib";
+import { TextDraw } from "@infernus/core";
 import { MyPlayer } from "./player";
 
-export class MyTextDraw extends BaseTextDraw<MyPlayer> {}
+export class MyTextDraw extends TextDraw<MyPlayer> {}
