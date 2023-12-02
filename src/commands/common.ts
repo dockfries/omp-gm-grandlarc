@@ -1,14 +1,18 @@
-import { playerEvent } from "@/events/player";
+import { playerSelections } from "@/controllers/selection";
+import { PlayerEvent } from "@infernus/core";
 
-playerEvent.onCommandText("kill", function (player) {
+PlayerEvent.onCommandText("kill", ({ player, next }) => {
   player.setHealth(0);
-  return true;
+  return next();
 });
 
-playerEvent.onCommandText("changecity", function (player) {
-  player.citySelection.hasSelected = false;
+PlayerEvent.onCommandText("changecity", ({ player, next }) => {
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+  const s = playerSelections.get(player)!;
+
+  s.hasSelected = false;
   player.forceClassSelection();
   player.toggleSpectating(true);
   player.toggleSpectating(false);
-  return true;
+  return next();
 });

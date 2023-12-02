@@ -1,7 +1,7 @@
 import { chooseLanguage } from "@/controllers/dialog";
-import { playerEvent } from "@/events/player";
+import { PlayerEvent } from "@infernus/core";
 
-playerEvent.onCommandText(["language", "lang"], function (player) {
+PlayerEvent.onCommandText(["language", "lang"], ({ player, next }) => {
   chooseLanguage(player);
-  return true;
+  return next();
 });

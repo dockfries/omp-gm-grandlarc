@@ -1,6 +1,6 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { CityEnum } from "@/enums/city";
-import { MyPlayer } from "@/models/player";
-import { CameraCutStylesEnum, KeysEnum } from "@infernus/core";
+import { CameraCutStylesEnum, KeysEnum, Player } from "@infernus/core";
 import {
   classSelHelperTD,
   lasVenturasTD,
@@ -8,8 +8,19 @@ import {
   sanFierroTD,
 } from "./textdraw";
 
-export const ClassSel_SetupCharSelection = (p: MyPlayer) => {
-  switch (p.citySelection.selectedCity) {
+type CitySelection = {
+  selectedCity: CityEnum;
+  hasSelected: boolean;
+  lastSelTime: number;
+};
+
+export const playerSelections = new Map<Player, CitySelection>();
+
+export const ClassSel_SetupCharSelection = (p: Player) => {
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+  const selectedCity = playerSelections.get(p)!.selectedCity;
+
+  switch (selectedCity) {
     case CityEnum.LOS_SANTOS:
       p.setInterior(11);
       p.setPos(508.7362, -87.4335, 998.9609);
@@ -40,19 +51,22 @@ export const ClassSel_SetupCharSelection = (p: MyPlayer) => {
   return true;
 };
 
-export const ClassSel_HandleCitySelection = (p: MyPlayer): void => {
-  const { keys, leftright: lr } = p.getKeys();
+export const ClassSel_HandleCitySelection = (p: Player): void => {
+  const { keys, leftRight: lr } = p.getKeys();
 
-  if (p.citySelection.selectedCity === CityEnum.NONE) {
+  const s = playerSelections.get(p)!;
+
+  if (s.selectedCity === CityEnum.NONE) {
     ClassSel_SwitchToNextCity(p);
     return;
   }
 
   // only allow new selection every ~500 ms
-  if (Date.now() - p.citySelection.lastSelTime < 500) return;
+  if (Date.now() - s.lastSelTime < 500) return;
 
   if (keys & KeysEnum.FIRE) {
-    p.citySelection.hasSelected = true;
+    s.hasSelected = true;
+
     classSelHelperTD.hide(p);
     losSantosTD.hide(p);
     sanFierroTD.hide(p);
@@ -65,36 +79,42 @@ export const ClassSel_HandleCitySelection = (p: MyPlayer): void => {
   else if (lr < 0) ClassSel_SwitchToPreviousCity(p);
 };
 
-const ClassSel_SwitchToNextCity = (p: MyPlayer): void => {
-  p.citySelection.selectedCity++;
-  if (p.citySelection.selectedCity > CityEnum.LAS_VENTURAS) {
-    p.citySelection.selectedCity = CityEnum.LOS_SANTOS;
+const ClassSel_SwitchToNextCity = (p: Player): void => {
+  const s = playerSelections.get(p)!;
+
+  s.selectedCity++;
+  if (s.selectedCity > CityEnum.LAS_VENTURAS) {
+    s.selectedCity = CityEnum.LOS_SANTOS;
   }
   p.playSound(1052);
-  p.citySelection.lastSelTime = Date.now();
+  s.lastSelTime = Date.now();
   ClassSel_SetupSelectedCity(p);
 };
 
-const ClassSel_SwitchToPreviousCity = (p: MyPlayer): void => {
-  p.citySelection.selectedCity--;
-  if (p.citySelection.selectedCity < CityEnum.LOS_SANTOS) {
-    p.citySelection.selectedCity = CityEnum.LAS_VENTURAS;
+const ClassSel_SwitchToPreviousCity = (p: Player): void => {
+  const s = playerSelections.get(p)!;
+
+  s.selectedCity--;
+  if (s.selectedCity < CityEnum.LOS_SANTOS) {
+    s.selectedCity = CityEnum.LAS_VENTURAS;
   }
   p.playSound(1053);
-  p.citySelection.lastSelTime = Date.now();
+  s.lastSelTime = Date.now();
   ClassSel_SetupSelectedCity(p);
 };
 
-const ClassSel_SetupSelectedCity = (p: MyPlayer) => {
-  if (p.citySelection.selectedCity === CityEnum.NONE) {
-    p.citySelection.selectedCity = CityEnum.LOS_SANTOS;
+const ClassSel_SetupSelectedCity = (p: Player) => {
+  const s = playerSelections.get(p)!;
+
+  if (s.selectedCity === CityEnum.NONE) {
+    s.selectedCity = CityEnum.LOS_SANTOS;
   }
   losSantosTD.hide(p);
   sanFierroTD.hide(p);
   lasVenturasTD.hide(p);
   p.setInterior(0);
 
-  switch (p.citySelection.selectedCity) {
+  switch (s.selectedCity) {
     case CityEnum.LOS_SANTOS:
       p.setCameraPos(1630.6136, -2286.0298, 110.0);
       p.setCameraLookAt(

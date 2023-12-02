@@ -8,16 +8,17 @@
 import { GameMode, MarkerModesEnum } from "@infernus/core";
 import { $t } from "./i18n";
 
-// register all commands
+// register all events
 import "@/commands";
+import "@/events/player";
 
 import { loadAllStaticVehicles } from "./controllers/vehicle";
 import { ClassSel_InitTextDraws } from "./controllers/textdraw";
-import "@/events/textdraw";
+
 import { useA51BaseFS, useAdminSpecFs } from "@infernus/fs";
 
-const app = new GameMode();
-app.onInit = () => {
+GameMode.onInit(({ next }) => {
+  GameMode.supportAllNickname();
   GameMode.setGameModeText("Grand Larceny");
   GameMode.showPlayerMarkers(MarkerModesEnum.GLOBAL);
   GameMode.showNameTags(true);
@@ -34,7 +35,8 @@ app.onInit = () => {
   console.log("\n---------------------------------------");
   console.log($t("server.running"));
   console.log("---------------------------------------\n");
-};
+  return next();
+});
 
 const AddPlayerClassList = (): void => {
   const position = {

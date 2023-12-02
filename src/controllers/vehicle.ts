@@ -1,5 +1,4 @@
-import "@/events/vehicle";
-import { MyVehicle } from "@/models/vehicle";
+import { Vehicle } from "@infernus/core";
 import fs from "fs";
 import path from "path";
 
@@ -18,16 +17,15 @@ export const loadAllStaticVehicles = async () => {
         const realData = vehicle.substring(0, vehicle.indexOf(" ;")).split(",");
         const [vehicletype, SpawnX, SpawnY, SpawnZ, SpawnRot, Color1, Color2] =
           realData;
-        new MyVehicle({
-          modelid: parseInt(vehicletype),
+        new Vehicle({
+          modelId: parseInt(vehicletype),
           x: parseFloat(SpawnX),
           y: parseFloat(SpawnY),
           z: parseFloat(SpawnZ),
           z_angle: parseFloat(SpawnRot),
-          colour1: +Color1,
-          colour2: +Color2,
+          color: [+Color1, +Color2],
           respawn_delay: 30 * 60,
-          addsiren: false,
+          addSiren: false,
         }).create(); // respawn 30 minutes
         vehicles_loaded++;
       });

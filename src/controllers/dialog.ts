@@ -1,11 +1,9 @@
 import { ColorEnum } from "@/enums/color";
 import { CharsetEnum, LanguageEnum } from "@/enums/language";
 import { $t, locales, localesTitle } from "@/i18n";
-import { MyDialog } from "@/models/dialog";
-import { MyPlayer } from "@/models/player";
-import { DialogStylesEnum } from "@infernus/core";
+import { Dialog, DialogStylesEnum, Player } from "@infernus/core";
 
-const chooseLangDialog = new MyDialog({
+const chooseLangDialog = new Dialog({
   style: DialogStylesEnum.LIST,
   caption: "Please select the interface language",
   info: "",
@@ -14,7 +12,7 @@ const chooseLangDialog = new MyDialog({
 
 // windows system use ansi
 const charsets = Object.values(CharsetEnum);
-const chooseCharsetDialog = new MyDialog({
+const chooseCharsetDialog = new Dialog({
   style: DialogStylesEnum.LIST,
   caption: "Please select your system's charset",
   info: charsets.reduce(
@@ -26,26 +24,25 @@ const chooseCharsetDialog = new MyDialog({
   button1: "ok",
 });
 
-export const chooseLanguage = (p: MyPlayer) => {
-  return new Promise<MyPlayer>((resolve) => {
-    const currLocale = p.locale as LanguageEnum;
-    chooseLangDialog.info = Object.values(localesTitle).reduce(
-      (prev, curr, idx: number): string => {
-        return `${prev}${idx + 1}.${curr[currLocale]}\n`;
-      },
-      ""
-    );
-    chooseLangDialog.show(p).then(({ listitem: localeIdx }) => {
-      chooseCharsetDialog.show(p).then(({ listitem: charsetIdx }) => {
-        const locale = Object.keys(locales)[localeIdx] as LanguageEnum;
-        p.locale = locale;
-        p.charset = charsets[charsetIdx];
-        p.sendClientMessage(
-          ColorEnum.White,
-          $t("dialog.lang.change", [localesTitle[locale][locale]], p.locale)
-        );
-        resolve(p);
-      });
-    });
-  });
+export const chooseLanguage = async (p: Player) => {
+  const currLocale = p.locale as LanguageEnum;
+
+  chooseLangDialog.info = Object.values(localesTitle).reduce(
+    (prev, curr, idx: number): string => {
+      return `${prev}${idx + 1}.${curr[currLocale]}\n`;
+    },
+    ""
+  );
+
+  const { listItem: localeIdx } = await chooseLangDialog.show(p);
+  const { listItem: charsetIdx } = await chooseCharsetDialog.show(p);
+
+  const locale = Object.keys(locales)[localeIdx] as LanguageEnum;
+  p.locale = locale;
+  p.charset = charsets[charsetIdx];
+  p.sendClientMessage(
+    ColorEnum.White,
+    $t("dialog.lang.change", [localesTitle[locale][locale]], p.locale)
+  );
+  return p;
 };
