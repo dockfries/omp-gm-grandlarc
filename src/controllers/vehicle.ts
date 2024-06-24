@@ -4,6 +4,15 @@ import path from "path";
 
 const vehicleFiles = path.resolve(__dirname, "../scriptfiles/vehicles");
 
+const LoadStaticVehiclesFromFile = (path: string) => {
+  return new Promise<string[]>((resolve, reject) => {
+    fs.readFile(path, (err, data) => {
+      if (err) reject(err);
+      resolve(data.toString().split("\n"));
+    });
+  });
+};
+
 export const loadAllStaticVehicles = async () => {
   try {
     const files = fs.readdirSync(vehicleFiles);
@@ -15,15 +24,15 @@ export const loadAllStaticVehicles = async () => {
     vehicleDataList.forEach((vehicles: string[]) => {
       vehicles.forEach((vehicle: string) => {
         const realData = vehicle.substring(0, vehicle.indexOf(" ;")).split(",");
-        const [vehicletype, SpawnX, SpawnY, SpawnZ, SpawnRot, Color1, Color2] =
+        const [modelId, spawnX, spawnY, spawnZ, spawnRot, color1, color2] =
           realData;
         new Vehicle({
-          modelId: parseInt(vehicletype),
-          x: parseFloat(SpawnX),
-          y: parseFloat(SpawnY),
-          z: parseFloat(SpawnZ),
-          z_angle: parseFloat(SpawnRot),
-          color: [+Color1, +Color2],
+          modelId: parseInt(modelId),
+          x: parseFloat(spawnX),
+          y: parseFloat(spawnY),
+          z: parseFloat(spawnZ),
+          z_angle: parseFloat(spawnRot),
+          color: [+color1, +color2],
           respawn_delay: 30 * 60,
           addSiren: false,
         }).create(); // respawn 30 minutes
@@ -35,13 +44,4 @@ export const loadAllStaticVehicles = async () => {
     console.log(err);
   }
   return 0;
-};
-
-const LoadStaticVehiclesFromFile = (path: string) => {
-  return new Promise<string[]>((resolve, reject) => {
-    fs.readFile(path, (err, data) => {
-      if (err) reject(err);
-      resolve(data.toString().split("\n"));
-    });
-  });
 };
