@@ -28,7 +28,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@infernus/core": "^0.11.0-beta.6",
+    "@infernus/core": "^0.11.0-beta.7",
     "@infernus/fs": "^0.11.1",
     "pino": "^9.1.0",
     "pino-pretty": "^11.1.0"

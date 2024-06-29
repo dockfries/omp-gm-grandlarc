@@ -9,11 +9,11 @@ importers:
   .:
     dependencies:
       '@infernus/core':
-        specifier: ^0.11.0-beta.6
-        version: 0.11.0-beta.6(@types/lodash-es@4.17.12)(lodash-es@4.17.21)(lodash@4.17.21)
+        specifier: 0.11.0-beta.7
+        version: 0.11.0-beta.7(@types/lodash-es@4.17.12)(lodash-es@4.17.21)(lodash@4.17.21)
       '@infernus/fs':
         specifier: ^0.11.1
-        version: 0.11.1(@infernus/core@0.11.0-beta.6(@types/lodash-es@4.17.12)(lodash-es@4.17.21)(lodash@4.17.21))
+        version: 0.11.1(@infernus/core@0.11.0-beta.7(@types/lodash-es@4.17.12)(lodash-es@4.17.21)(lodash@4.17.21))
       pino:
         specifier: ^9.1.0
         version: 9.1.0
@@ -255,16 +255,16 @@ packages:
   '@humanwhocodes/object-schema@2.0.3':
     resolution: {integrity: sha512-93zYdMES/c1D69yZiKDBj0V24vqNzB/koF26KPaagAfd3P/4gUlh3Dys5ogAK+Exi9QyzlD8x/08Zt7wIKcDcA==}
 
-  '@infernus/core@0.11.0-beta.6':
-    resolution: {integrity: sha512-VDCU/yjX5Shlvy/YlALwRnvsC0zVnj1vUjOvpwP0aYJBm/VYo12KC1necUM5YjteELp+Vo8PPw6HKF5ues2f4w==}
+  '@infernus/core@0.11.0-beta.7':
+    resolution: {integrity: sha512-4L1sAdbqg1xRuUg1/oATWmJucbFptMvodiGY5WOrMTNOuk2QSQEH8Es7Xo+zlnMyEqFH/y9sYS4TtXLtQrCOhg==}
 
   '@infernus/fs@0.11.1':
     resolution: {integrity: sha512-2W4dsPqyW/CiaMlgg3KtIF3gW6/k1gaxGYtRrz2JTEM52gPndvkqkDB7BspEVm9vgqYK2XixzZrrjsdafzM0AQ==}
     peerDependencies:
       '@infernus/core': ^0.11.0-beta.2
 
-  '@infernus/streamer@0.11.0':
-    resolution: {integrity: sha512-7ttZq1D2wn6yn3yedcRE/xdt5rJM40YaQzMZfNBUBgLk/fHHufjWjnlaz9c2C99/tYsBMNC/9T8KYGKUH27zsw==}
+  '@infernus/streamer@0.11.1':
+    resolution: {integrity: sha512-3Njk3RSPF5YrrqjEUML7zjCe2bEULeGt2/mYTotJVeyoWX8MLBSIaqpGLGDenGwAQ8E0710THs2CRLCAxbT1dw==}
 
   '@isaacs/cliui@8.0.2':
     resolution: {integrity: sha512-O8jcjabXaleOG9DQ0+ARXWZBTfnP4WNAqzuiJK7ll44AmxGKv/J2M4TPjxjY3znBCfvBXFzucm1twdyFybFqEA==}
@@ -426,8 +426,8 @@ packages:
   '@types/lodash-es@4.17.12':
     resolution: {integrity: sha512-0NgftHUcV4v34VhXm8QBSftKVXtbkBG3ViCjs6+eJ5a6y6Mi/jiFGPc1sC7QK+9BFhWrURE3EOggmWaSxL9OzQ==}
 
-  '@types/lodash@4.14.202':
-    resolution: {integrity: sha512-OvlIYQK9tNneDlS0VN54LLd5uiPCBOp7gS5Z0f1mjoJYBrtStzgmJBxONW3U6OZqdtNzZPmn9BS/7WI7BFFcFQ==}
+  '@types/lodash@4.17.6':
+    resolution: {integrity: sha512-OpXEVoCKSS3lQqjx9GGGOapBeuW5eUboYHRlHP9urXPX25IKZ6AnP5ZRxtVf63iieUbsHxLn8NQ5Nlftc6yzAA==}
 
   '@types/node@20.12.12':
     resolution: {integrity: sha512-eWLDGF/FOSPtAvEqeRAQ4C8LSA7M1I7i0ky1I8U7kD1J5ITyW3AsRhQrKVoWf5pFKZ2kILsEGJhsI9r93PYnOw==}
@@ -1738,9 +1738,9 @@ snapshots:
 
   '@humanwhocodes/object-schema@2.0.3': {}
 
-  '@infernus/core@0.11.0-beta.6(@types/lodash-es@4.17.12)(lodash-es@4.17.21)(lodash@4.17.21)':
+  '@infernus/core@0.11.0-beta.7(@types/lodash-es@4.17.12)(lodash-es@4.17.21)(lodash@4.17.21)':
     dependencies:
-      '@infernus/streamer': 0.11.0
+      '@infernus/streamer': 0.11.1
       iconv-lite: 0.6.3
       lodash-unified: 1.0.3(@types/lodash-es@4.17.12)(lodash-es@4.17.21)(lodash@4.17.21)
       pino: 8.17.1
@@ -1750,11 +1750,11 @@ snapshots:
       - lodash
       - lodash-es
 
-  '@infernus/fs@0.11.1(@infernus/core@0.11.0-beta.6(@types/lodash-es@4.17.12)(lodash-es@4.17.21)(lodash@4.17.21))':
+  '@infernus/fs@0.11.1(@infernus/core@0.11.0-beta.7(@types/lodash-es@4.17.12)(lodash-es@4.17.21)(lodash@4.17.21))':
     dependencies:
-      '@infernus/core': 0.11.0-beta.6(@types/lodash-es@4.17.12)(lodash-es@4.17.21)(lodash@4.17.21)
+      '@infernus/core': 0.11.0-beta.7(@types/lodash-es@4.17.12)(lodash-es@4.17.21)(lodash@4.17.21)
 
-  '@infernus/streamer@0.11.0': {}
+  '@infernus/streamer@0.11.1': {}
 
   '@isaacs/cliui@8.0.2':
     dependencies:
@@ -1882,9 +1882,9 @@ snapshots:
 
   '@types/lodash-es@4.17.12':
     dependencies:
-      '@types/lodash': 4.14.202
+      '@types/lodash': 4.17.6
 
-  '@types/lodash@4.14.202': {}
+  '@types/lodash@4.17.6': {}
 
   '@types/node@20.12.12':
     dependencies:
