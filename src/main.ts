@@ -14,8 +14,17 @@ import "@/events/player";
 
 import { loadAllStaticVehicles } from "./controllers/vehicle";
 import { ClassSel_InitTextDraws } from "./controllers/textdraw";
-
-import { useA51BaseFS, useAdminSpecFs } from "@infernus/fs";
+import {
+  Attachments,
+  GlActions,
+  GlMapIcon,
+  GlRealTime,
+  LSBeachSide,
+  LSElevator,
+  LsMall,
+  SkinChanger,
+  VSpawner,
+} from "@infernus/fs";
 
 GameMode.onInit(({ next }) => {
   GameMode.supportAllNickname();
@@ -67,4 +76,13 @@ const AddPlayerClassList = (): void => {
   });
 };
 
-GameMode.use(useAdminSpecFs()).use(useA51BaseFS({ debug: true }));
+GameMode.use(GlActions)
+.use(GlRealTime)
+.use(GlMapIcon)
+.use(LSElevator)
+.use(Attachments)
+.use(SkinChanger)
+.use(VSpawner)
+.use(LsMall)
+.use(LSBeachSide);
+// .use(GlProperty)
