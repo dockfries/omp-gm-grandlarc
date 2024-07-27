@@ -53,7 +53,6 @@ PlayerEvent.onDisconnect(({ player, next }) => {
 
 PlayerEvent.onText(({ player, text, next }) => {
   Player.sendClientMessageToAll(
-    Player.getInstances(),
     ColorEnum.White,
     `${player.getName()}(${player.id}): ${text}`
   );

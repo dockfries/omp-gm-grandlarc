@@ -24,6 +24,7 @@ import {
   LsMall,
   SkinChanger,
   VSpawner,
+  GlProperty,
 } from "@infernus/fs";
 
 GameMode.onInit(({ next }) => {
@@ -77,12 +78,12 @@ const AddPlayerClassList = (): void => {
 };
 
 GameMode.use(GlActions)
-.use(GlRealTime)
-.use(GlMapIcon)
-.use(LSElevator)
-.use(Attachments)
-.use(SkinChanger)
-.use(VSpawner)
-.use(LsMall)
-.use(LSBeachSide);
-// .use(GlProperty)
+  .use(GlRealTime)
+  .use(GlMapIcon)
+  .use(LSElevator)
+  .use(Attachments)
+  .use(SkinChanger)
+  .use(VSpawner)
+  .use(LsMall)
+  .use(LSBeachSide)
+  .use(GlProperty);

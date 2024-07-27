@@ -31,9 +31,9 @@ export const loadAllStaticVehicles = async () => {
           x: parseFloat(spawnX),
           y: parseFloat(spawnY),
           z: parseFloat(spawnZ),
-          z_angle: parseFloat(spawnRot),
+          zAngle: parseFloat(spawnRot),
           color: [+color1, +color2],
-          respawn_delay: 30 * 60,
+          respawnDelay: 30 * 60,
           addSiren: false,
         }).create(); // respawn 30 minutes
         vehicles_loaded++;

@@ -10,7 +10,7 @@ const isDev = process.env.NODE_ENV === "dev";
 const plugins = [
   externals(),
   nodeResolve(),
-  esbuild({ sourceMap: isDev, minify: !isDev }),
+  esbuild({ target: "node16.20", sourceMap: isDev, minify: !isDev }),
   typescriptPaths({ preserveExtensions: true }),
   json(),
   commonjs(),
@@ -22,6 +22,13 @@ export default {
     file: "./dist/bundle.js",
     format: "cjs",
     sourcemap: isDev,
+    banner: `
+    const __module = require("module");
+    const __load = __module._load;
+    __module._load = function (request) {
+      if (request === "process") return global.process;
+      return __load.apply(this, arguments);
+    };`,
   },
   plugins,
 };
