@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import {
   ClassSel_HandleCitySelection,
   ClassSel_SetupCharSelection,

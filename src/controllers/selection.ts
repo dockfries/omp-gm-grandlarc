@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { CityEnum } from "@/enums/city";
 import { CameraCutStylesEnum, KeysEnum, Player } from "@infernus/core";
 import {
@@ -17,7 +16,6 @@ type CitySelection = {
 export const playerSelections = new Map<Player, CitySelection>();
 
 export const ClassSel_SetupCharSelection = (p: Player) => {
-  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   const selectedCity = playerSelections.get(p)!.selectedCity;
 
   switch (selectedCity) {

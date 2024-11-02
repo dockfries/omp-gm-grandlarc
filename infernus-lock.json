@@ -2,7 +2,7 @@
   "lockfileVersion": 1,
   "dependencies": {
     "openmultiplayer/open.mp": {
-      "version": "v1.2.0.2670"
+      "version": "v1.3.1.2748"
     },
     "samp-incognito/samp-streamer-plugin": {
       "version": "v2.9.6"

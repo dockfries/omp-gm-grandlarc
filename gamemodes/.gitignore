@@ -1,0 +1,4 @@
+*.pwn
+*.amx
+!polyill.amx
+!polyill.pwn

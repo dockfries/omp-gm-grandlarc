@@ -7,7 +7,6 @@ PlayerEvent.onCommandText("kill", ({ player, next }) => {
 });
 
 PlayerEvent.onCommandText("changecity", ({ player, next }) => {
-  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   const s = playerSelections.get(player)!;
 
   s.hasSelected = false;
