@@ -10,3 +10,4 @@ libnode.dll
 *.pdb
 plugins
 qawno
+.rslib
