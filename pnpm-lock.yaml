@@ -9,11 +9,11 @@ importers:
   .:
     dependencies:
       '@infernus/core':
-        specifier: ^0.11.0-beta.13
-        version: 0.11.0-beta.13(@types/lodash-es@4.17.12)(lodash-es@4.17.21)(lodash@4.17.21)
+        specifier: ^0.11.2
+        version: 0.11.2(@types/lodash-es@4.17.12)(lodash-es@4.17.21)(lodash@4.17.21)
       '@infernus/fs':
         specifier: ^0.11.6
-        version: 0.11.6(@infernus/core@0.11.0-beta.13(@types/lodash-es@4.17.12)(lodash-es@4.17.21)(lodash@4.17.21))
+        version: 0.11.6(@infernus/core@0.11.2(@types/lodash-es@4.17.12)(lodash-es@4.17.21)(lodash@4.17.21))
       pino:
         specifier: ^9.5.0
         version: 9.5.0
@@ -121,8 +121,8 @@ packages:
     resolution: {integrity: sha512-xnRgu9DxZbkWak/te3fcytNyp8MTbuiZIaueg2rgEvBuN55n04nwLYLU9TX/VVlusc9L2ZNXi99nUFNkHXtr5g==}
     engines: {node: '>=18.18'}
 
-  '@infernus/core@0.11.0-beta.13':
-    resolution: {integrity: sha512-YLj26OaIG0S0YJBY/HVF3NnoxYw13ZGmuhZQR7uI3mf+pseR7oTqE6Liw1I/CPiBTBwrAgdH7+wLsRMwOPRL8Q==}
+  '@infernus/core@0.11.2':
+    resolution: {integrity: sha512-h500eEGsTqOZF5cE0OsiX1467Y4wlwEw+B7kwYKgkJwz6BfW6zRYX3hL3bXgUDoC3zWFAvcryc6Y/Cvs6OepPw==}
 
   '@infernus/fs@0.11.6':
     resolution: {integrity: sha512-W7PMPGbmsJlXXsHUDrCieSNYduyAB6Fqyd9vq5jXhxkIeLbgZqO1G3vcO3m3lxIxy9yCkbdYSlRptLAQul2lBA==}
@@ -253,8 +253,8 @@ packages:
   '@types/lodash-es@4.17.12':
     resolution: {integrity: sha512-0NgftHUcV4v34VhXm8QBSftKVXtbkBG3ViCjs6+eJ5a6y6Mi/jiFGPc1sC7QK+9BFhWrURE3EOggmWaSxL9OzQ==}
 
-  '@types/lodash@4.17.6':
-    resolution: {integrity: sha512-OpXEVoCKSS3lQqjx9GGGOapBeuW5eUboYHRlHP9urXPX25IKZ6AnP5ZRxtVf63iieUbsHxLn8NQ5Nlftc6yzAA==}
+  '@types/lodash@4.17.13':
+    resolution: {integrity: sha512-lfx+dftrEZcdBPczf9d0Qv0x+j/rfNCMuC6OcfXmO8gkfeNAY88PgKUbvG56whcN23gc27yenwF6oJZXGFpYxg==}
 
   '@types/node@20.17.5':
     resolution: {integrity: sha512-n8FYY/pRxu496441gIcAQFZPKXbhsd6VZygcq+PTSZ75eMh/Ke0hCAROdUa21qiFqKNsPPYic46yXDO1JGiPBQ==}
@@ -593,9 +593,6 @@ packages:
   for-each@0.3.3:
     resolution: {integrity: sha512-jqYfLp7mo9vIyQf8ykW2v7A+2N4QjeCeI5+Dz9XraiO1ign81wjiH7Fb9vSOWvQfNtmSa4H2RoQTrrXivdUZmw==}
 
-  fs.realpath@1.0.0:
-    resolution: {integrity: sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw==}
-
   fsevents@2.3.3:
     resolution: {integrity: sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
@@ -625,11 +622,6 @@ packages:
   glob-parent@6.0.2:
     resolution: {integrity: sha512-XxwI8EOhVQgWp6iDL+3b0r86f4d6AX6zSU55HfB4ydCEuXLXc5FcYeOu+nnGftS4TEju/11rt4KJPTMgbfmv4A==}
     engines: {node: '>=10.13.0'}
-
-  glob@8.1.0:
-    resolution: {integrity: sha512-r8hpEjiQEYlF2QU0df3dS+nxxSIreXQS1qRhMJM0Q5NDdR386C7jb7Hwwod8Fgiuex+k0GFjgft18yvxm5XoCQ==}
-    engines: {node: '>=12'}
-    deprecated: Glob versions prior to v9 are no longer supported
 
   globals@14.0.0:
     resolution: {integrity: sha512-oahGvuMGQlPw/ivIYBjVSrWAfWLBeku5tpPE2fOPLi+WHffIWbuh2tCjhyQhTBPMf5E9jDEH4FOmTYgYwbKwtQ==}
@@ -682,9 +674,6 @@ packages:
     resolution: {integrity: sha512-f2dvO0VU6Oej7RkWJGrehjbzMAjFp5/VKPp5tTpWIV4JHHZK1/BxbFRtf/siA2SWTe09caDmVtYYzWEIbBS4zw==}
     engines: {node: '>= 0.4.0'}
 
-  help-me@4.2.0:
-    resolution: {integrity: sha512-TAOnTB8Tz5Dw8penUuzHVrKNKlCIbwwbHnXraNJxPwf8LRtE2HlM84RYuezMFcwOJmoYOCWVDyJ8TQGxn9PgxA==}
-
   help-me@5.0.0:
     resolution: {integrity: sha512-7xgomUX6ADmcYzFik0HzAxh/73YlKR9bmFzf51CZwR+b6YtzU2m0u49hQCqV6SvlqIqsaxovfwdvbnsw3b/zpg==}
 
@@ -717,13 +706,6 @@ packages:
   imurmurhash@0.1.4:
     resolution: {integrity: sha512-JmXMZ6wuvDmLiHEml9ykzqO6lwFbof0GG4IkcGaENdCRDDmMVnny7s5HsIgHCbaq0w2MyPhDqkhTUgS2LU2PHA==}
     engines: {node: '>=0.8.19'}
-
-  inflight@1.0.6:
-    resolution: {integrity: sha512-k92I/b08q4wvFscXCLvqfsHCrjrF7yiXsQuIVvVE7N82W3+aqpzuUdBbfhWcy/FZR3/4IgflMgKLOsvPDrGCJA==}
-    deprecated: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
-
-  inherits@2.0.4:
-    resolution: {integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==}
 
   internal-slot@1.0.5:
     resolution: {integrity: sha512-Y+R5hJrzs52QCG2laLn4udYVnxsfny9CpOhNhUvk/SSSVyF6T27FzRbF0sroPidSu3X8oEAkOn2K804mjpt6UQ==}
@@ -871,10 +853,6 @@ packages:
   minimatch@3.1.2:
     resolution: {integrity: sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==}
 
-  minimatch@5.1.6:
-    resolution: {integrity: sha512-lKwV/1brpG6mBUFHtb7NUmtABCb2WZZmm2wNiOA5hAb8VdCS4B3dtMWyvcoViccwAW/COERjXLt0zP1zXUN26g==}
-    engines: {node: '>=10'}
-
   minimatch@9.0.4:
     resolution: {integrity: sha512-KqWh+VchfxcMNRAJjj2tnsSJdNbHsVgnkBhTNrW7AjVo6OvLtxw8zfT9oLw1JSohlFzJ8jCoTgaoXvJ+kHt6fw==}
     engines: {node: '>=16 || 14 >=14.17'}
@@ -988,12 +966,6 @@ packages:
     resolution: {integrity: sha512-C3FsVNH1udSEX48gGX1xfvwTWfsYWj5U+8/uK15BGzIGrKoUpghX8hWZwa/OFnakBiiVNmBvemTJR5mcy7iPcg==}
     engines: {node: '>=4'}
 
-  pino-abstract-transport@1.1.0:
-    resolution: {integrity: sha512-lsleG3/2a/JIWUtf9Q5gUNErBqwIu1tUKTT3dUzaf5DySw9ra1wcqKjJjLX1VTY64Wk1eEOYsVGSaGfCK85ekA==}
-
-  pino-abstract-transport@1.2.0:
-    resolution: {integrity: sha512-Guhh8EZfPCfH+PMXAb6rKOjGQEoy0xlAIn+irODG5kgfYV+BQ0rGYYWTIel3P5mmyXqkYkPmdIkywsn6QKUR1Q==}
-
   pino-abstract-transport@2.0.0:
     resolution: {integrity: sha512-F63x5tizV6WCh4R6RHyi2Ml+M70DNRXt/+HANowMflpgGFMAym/VKm6G7ZOQRjqN7XbGxK1Lg9t6ZrtzOaivMw==}
 
@@ -1001,19 +973,8 @@ packages:
     resolution: {integrity: sha512-oXwn7ICywaZPHmu3epHGU2oJX4nPmKvHvB/bwrJHlGcbEWaVcotkpyVHMKLKmiVryWYByNp0jpgAcXpFJDXJzA==}
     hasBin: true
 
-  pino-pretty@9.4.1:
-    resolution: {integrity: sha512-loWr5SNawVycvY//hamIzyz3Fh5OSpvkcO13MwdDW+eKIGylobPLqnVGTDwDXkdmpJd1BhEG+qhDw09h6SqJiQ==}
-    hasBin: true
-
-  pino-std-serializers@6.2.1:
-    resolution: {integrity: sha512-wHuWB+CvSVb2XqXM0W/WOYUkVSPbiJb9S5fNB7TBhd8s892Xq910bRxwHtC4l71hgztObTjXL6ZheZXFjhDrDQ==}
-
   pino-std-serializers@7.0.0:
     resolution: {integrity: sha512-e906FRY0+tV27iq4juKzSYPbUj2do2X2JX4EzSca1631EB2QJQUqGbDuERal7LCtOpxl6x3+nvo9NPZcmjkiFA==}
-
-  pino@8.17.1:
-    resolution: {integrity: sha512-YoN7/NJgnsJ+fkADZqjhRt96iepWBndQHeClmSBH0sQWCb8zGD74t00SK4eOtKFi/f8TUmQnfmgglEhd2kI1RQ==}
-    hasBin: true
 
   pino@9.5.0:
     resolution: {integrity: sha512-xSEmD4pLnV54t0NOUN16yCl7RIB1c5UUOse5HSyEXtBp+FgFQyPeDutc+Q2ZO7/22vImV7VfEjH/1zV2QuqvYw==}
@@ -1022,9 +983,6 @@ packages:
   prelude-ls@1.2.1:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
-
-  process-warning@2.2.0:
-    resolution: {integrity: sha512-/1WZ8+VQjR6avWOgHeEPd7SDQmFQ1B5mC1eRXsCm5TarlNmx/wCsa5GEaxGm05BORRtyG/Ex/3xq3TuRvq57qg==}
 
   process-warning@4.0.0:
     resolution: {integrity: sha512-/MyYDxttz7DfGMMHiysAsFE4qF+pQYAA8ziO/3NcRVrQ5fSk+Mns4QZA/oRPFzvcqNoVJXQNWNAsdwBXLUkQKw==}
@@ -1052,10 +1010,6 @@ packages:
   read-pkg@3.0.0:
     resolution: {integrity: sha512-BLq/cCO9two+lBgiTYNqD6GdtK8s4NpaWrl6/rCO9w0TUS8oJl7cmToOZfRYllKTISY6nt1U7jQ53brmKqY6BA==}
     engines: {node: '>=4'}
-
-  readable-stream@3.6.2:
-    resolution: {integrity: sha512-9u/sniCrY3D5WdsERHzHE4G2YCXqoG5FTHUiCC4SIbr6XcLZBY05ya9EKjYek9O5xOAwjGq+1JdGBAS7Q9ScoA==}
-    engines: {node: '>= 6'}
 
   readable-stream@4.4.0:
     resolution: {integrity: sha512-kDMOq0qLtxV9f/SQv522h8cxZBqNZXuXNyjyezmfAAuribMyVXziljpQ/uQhfE1XLg2/TLTW2DsnoE4VAi/krg==}
@@ -1100,9 +1054,6 @@ packages:
 
   run-parallel@1.2.0:
     resolution: {integrity: sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA==}
-
-  safe-buffer@5.2.1:
-    resolution: {integrity: sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ==}
 
   safe-regex-test@1.0.0:
     resolution: {integrity: sha512-JBUUzyOgEwXQY1NuPtvcj/qcBDbDmEvWufhlnXZIm75DEHp+afM1r1ujJpJsV/gSM4t59tpDyPi1sd6ZaPFfsA==}
@@ -1152,9 +1103,6 @@ packages:
     resolution: {integrity: sha512-a2B9Y0KlNXl9u/vsW6sTIu9vGEpfKu2wRV6l1H3XEas/0gUIzGzBoP/IouTcUQbm9JWZLH3COxyn03TYlFax6w==}
     engines: {node: '>=10'}
 
-  sonic-boom@3.7.0:
-    resolution: {integrity: sha512-IudtNvSqA/ObjN97tfgNmOKyDOs4dNcg4cUUsHDebqsgb8wGBBwb31LIgShNO8fye0dFI52X1+tFoKKI6Rq1Gg==}
-
   sonic-boom@4.0.1:
     resolution: {integrity: sha512-hTSD/6JMLyT4r9zeof6UtuBDpjJ9sO08/nmS5djaA9eozT9oOlNdpXSnzcgj4FTqpk3nkLrs61l4gip9r1HCrQ==}
 
@@ -1188,9 +1136,6 @@ packages:
   string.prototype.trimstart@1.0.6:
     resolution: {integrity: sha512-omqjMDaY92pbn5HOX7f9IccLA+U1tA9GvtU4JrodiXFfYB7jPzzHpRzpglLAjtUV6bB557zwClJezTqnAiYnQA==}
 
-  string_decoder@1.3.0:
-    resolution: {integrity: sha512-hkRX8U1WjJFd8LsDJ2yQ/wWWxaopEsABU1XfkM8A+j0+85JAGppt16cr1Whg6KIbb4okU6Mql6BOj+uup/wKeA==}
-
   strip-bom@3.0.0:
     resolution: {integrity: sha512-vavAMRXOgBVNF6nyEEmL3DBK19iRpDcoIwW+swQ+CbGiu7lju6t+JklA1MHweoWtadgt4ISVUsXLyDq34ddcwA==}
     engines: {node: '>=4'}
@@ -1213,9 +1158,6 @@ packages:
 
   text-table@0.2.0:
     resolution: {integrity: sha512-N+8UisAXDGk8PFXP4HAzVR9nbfmVJ3zYLAWiTIoqC5v5isinhr+r5uaO8+7r3BMfuNIufIsA7RdpVgacC2cSpw==}
-
-  thread-stream@2.3.0:
-    resolution: {integrity: sha512-kaDqm1DET9pp3NXwR8382WHbnpXnRkN9xGN9dQt3B2+dmXiW8X1SOwmFOxAErEQ47ObhZ96J6yhZNXuyCOL7KA==}
 
   thread-stream@3.0.1:
     resolution: {integrity: sha512-O5O/RbdV3CjhtwFa4slXvrb/26lzsf4/NMts3QFIRniIsi+584QSneJXaHXasqcZO+B7pWZkr+4h9knhnAQevg==}
@@ -1273,9 +1215,6 @@ packages:
 
   uri-js@4.4.1:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}
-
-  util-deprecate@1.0.2:
-    resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
 
   validate-npm-package-license@3.0.4:
     resolution: {integrity: sha512-DpKm2Ui/xN7/HQKCtpZxoRWBhZ9Z0kqtygG8XCgNQ8ZlDnxuQmWhj566j8fN4Cu3/JmbhsDo7fcAJq4s9h27Ew==}
@@ -1359,21 +1298,19 @@ snapshots:
 
   '@humanwhocodes/retry@0.4.0': {}
 
-  '@infernus/core@0.11.0-beta.13(@types/lodash-es@4.17.12)(lodash-es@4.17.21)(lodash@4.17.21)':
+  '@infernus/core@0.11.2(@types/lodash-es@4.17.12)(lodash-es@4.17.21)(lodash@4.17.21)':
     dependencies:
       '@infernus/streamer': 0.11.2
       iconv-lite: 0.6.3
       lodash-unified: 1.0.3(@types/lodash-es@4.17.12)(lodash-es@4.17.21)(lodash@4.17.21)
-      pino: 8.17.1
-      pino-pretty: 9.4.1
     transitivePeerDependencies:
       - '@types/lodash-es'
       - lodash
       - lodash-es
 
-  '@infernus/fs@0.11.6(@infernus/core@0.11.0-beta.13(@types/lodash-es@4.17.12)(lodash-es@4.17.21)(lodash@4.17.21))':
+  '@infernus/fs@0.11.6(@infernus/core@0.11.2(@types/lodash-es@4.17.12)(lodash-es@4.17.21)(lodash@4.17.21))':
     dependencies:
-      '@infernus/core': 0.11.0-beta.13(@types/lodash-es@4.17.12)(lodash-es@4.17.21)(lodash@4.17.21)
+      '@infernus/core': 0.11.2(@types/lodash-es@4.17.12)(lodash-es@4.17.21)(lodash@4.17.21)
 
   '@infernus/streamer@0.11.2': {}
 
@@ -1486,9 +1423,9 @@ snapshots:
 
   '@types/lodash-es@4.17.12':
     dependencies:
-      '@types/lodash': 4.17.6
+      '@types/lodash': 4.17.13
 
-  '@types/lodash@4.17.6': {}
+  '@types/lodash@4.17.13': {}
 
   '@types/node@20.17.5':
     dependencies:
@@ -1909,8 +1846,6 @@ snapshots:
     dependencies:
       is-callable: 1.2.7
 
-  fs.realpath@1.0.0: {}
-
   fsevents@2.3.3:
     optional: true
 
@@ -1943,14 +1878,6 @@ snapshots:
   glob-parent@6.0.2:
     dependencies:
       is-glob: 4.0.3
-
-  glob@8.1.0:
-    dependencies:
-      fs.realpath: 1.0.0
-      inflight: 1.0.6
-      inherits: 2.0.4
-      minimatch: 5.1.6
-      once: 1.4.0
 
   globals@14.0.0: {}
 
@@ -1990,11 +1917,6 @@ snapshots:
     dependencies:
       function-bind: 1.1.1
 
-  help-me@4.2.0:
-    dependencies:
-      glob: 8.1.0
-      readable-stream: 3.6.2
-
   help-me@5.0.0: {}
 
   hosted-git-info@2.8.9: {}
@@ -2017,13 +1939,6 @@ snapshots:
       resolve-from: 4.0.0
 
   imurmurhash@0.1.4: {}
-
-  inflight@1.0.6:
-    dependencies:
-      once: 1.4.0
-      wrappy: 1.0.2
-
-  inherits@2.0.4: {}
 
   internal-slot@1.0.5:
     dependencies:
@@ -2170,10 +2085,6 @@ snapshots:
     dependencies:
       brace-expansion: 1.1.11
 
-  minimatch@5.1.6:
-    dependencies:
-      brace-expansion: 2.0.1
-
   minimatch@9.0.4:
     dependencies:
       brace-expansion: 2.0.1
@@ -2289,16 +2200,6 @@ snapshots:
 
   pify@3.0.0: {}
 
-  pino-abstract-transport@1.1.0:
-    dependencies:
-      readable-stream: 4.4.0
-      split2: 4.2.0
-
-  pino-abstract-transport@1.2.0:
-    dependencies:
-      readable-stream: 4.4.0
-      split2: 4.2.0
-
   pino-abstract-transport@2.0.0:
     dependencies:
       split2: 4.2.0
@@ -2320,40 +2221,7 @@ snapshots:
       sonic-boom: 4.0.1
       strip-json-comments: 3.1.1
 
-  pino-pretty@9.4.1:
-    dependencies:
-      colorette: 2.0.20
-      dateformat: 4.6.3
-      fast-copy: 3.0.2
-      fast-safe-stringify: 2.1.1
-      help-me: 4.2.0
-      joycon: 3.1.1
-      minimist: 1.2.8
-      on-exit-leak-free: 2.1.0
-      pino-abstract-transport: 1.2.0
-      pump: 3.0.0
-      readable-stream: 4.4.0
-      secure-json-parse: 2.7.0
-      sonic-boom: 3.7.0
-      strip-json-comments: 3.1.1
-
-  pino-std-serializers@6.2.1: {}
-
   pino-std-serializers@7.0.0: {}
-
-  pino@8.17.1:
-    dependencies:
-      atomic-sleep: 1.0.0
-      fast-redact: 3.1.2
-      on-exit-leak-free: 2.1.0
-      pino-abstract-transport: 1.1.0
-      pino-std-serializers: 6.2.1
-      process-warning: 2.2.0
-      quick-format-unescaped: 4.0.4
-      real-require: 0.2.0
-      safe-stable-stringify: 2.4.3
-      sonic-boom: 3.7.0
-      thread-stream: 2.3.0
 
   pino@9.5.0:
     dependencies:
@@ -2370,8 +2238,6 @@ snapshots:
       thread-stream: 3.0.1
 
   prelude-ls@1.2.1: {}
-
-  process-warning@2.2.0: {}
 
   process-warning@4.0.0: {}
 
@@ -2395,12 +2261,6 @@ snapshots:
       load-json-file: 4.0.0
       normalize-package-data: 2.5.0
       path-type: 3.0.0
-
-  readable-stream@3.6.2:
-    dependencies:
-      inherits: 2.0.4
-      string_decoder: 1.3.0
-      util-deprecate: 1.0.2
 
   readable-stream@4.4.0:
     dependencies:
@@ -2444,8 +2304,6 @@ snapshots:
     dependencies:
       queue-microtask: 1.2.3
 
-  safe-buffer@5.2.1: {}
-
   safe-regex-test@1.0.0:
     dependencies:
       call-bind: 1.0.2
@@ -2485,10 +2343,6 @@ snapshots:
   simple-update-notifier@2.0.0:
     dependencies:
       semver: 7.6.2
-
-  sonic-boom@3.7.0:
-    dependencies:
-      atomic-sleep: 1.0.0
 
   sonic-boom@4.0.1:
     dependencies:
@@ -2534,10 +2388,6 @@ snapshots:
       define-properties: 1.2.0
       es-abstract: 1.21.2
 
-  string_decoder@1.3.0:
-    dependencies:
-      safe-buffer: 5.2.1
-
   strip-bom@3.0.0: {}
 
   strip-json-comments@3.1.1: {}
@@ -2553,10 +2403,6 @@ snapshots:
   supports-preserve-symlinks-flag@1.0.0: {}
 
   text-table@0.2.0: {}
-
-  thread-stream@2.3.0:
-    dependencies:
-      real-require: 0.2.0
 
   thread-stream@3.0.1:
     dependencies:
@@ -2618,8 +2464,6 @@ snapshots:
   uri-js@4.4.1:
     dependencies:
       punycode: 2.3.0
-
-  util-deprecate@1.0.2: {}
 
   validate-npm-package-license@3.0.4:
     dependencies:
