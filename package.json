@@ -2,7 +2,7 @@
   "name": "omp-gm-grandlarc",
   "version": "1.0.0",
   "private": true,
-  "description": "The GrandLarceny sample gamemode written with omp-node-starter",
+  "description": "The GrandLarceny sample gamemode written with infernus-starter",
   "keywords": [
     "sa-mp",
     "sa:mp",
@@ -15,7 +15,7 @@
   "bugs": {
     "url": "https://github.com/dockfries/omp-gm-grandlarc/issues"
   },
-  "license": "ISC",
+  "license": "MIT",
   "author": "dockfries",
   "scripts": {
     "serve": "pnpm exec ./omp-server",
