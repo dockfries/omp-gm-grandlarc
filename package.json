@@ -27,24 +27,24 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@infernus/core": "^0.11.9",
+    "@infernus/core": "^0.11.12",
     "@infernus/fs": "^0.11.8",
-    "pino": "^9.6.0",
+    "pino": "^9.7.0",
     "pino-pretty": "^13.0.0"
   },
   "devDependencies": {
-    "@eslint/js": "^9.22.0",
+    "@eslint/js": "^9.28.0",
     "@infernus/types": "^0.1.0",
-    "@rslib/core": "^0.5.4",
-    "@types/node": "^22.13.10",
+    "@rslib/core": "^0.5.5",
+    "@types/node": "^22.15.30",
     "cross-env": "^7.0.3",
-    "eslint": "^9.22.0",
-    "globals": "^16.0.0",
+    "eslint": "^9.28.0",
+    "globals": "^16.2.0",
     "husky": "^9.1.7",
     "iconv-lite": "^0.6.3",
-    "nodemon": "^3.1.9",
+    "nodemon": "^3.1.10",
     "npm-run-all": "^4.1.5",
-    "typescript": "^5.8.2",
-    "typescript-eslint": "^8.26.1"
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.33.1"
   }
 }
