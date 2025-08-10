@@ -40,7 +40,7 @@ PlayerEvent.onConnect(async ({ player, next }) => {
   gt.forPlayer(player);
   player.sendClientMessage(
     ColorEnum.White,
-    $t("server.welcome", [player.getName()], player.locale)
+    $t("server.welcome", [player.getName().name], player.locale)
   );
   return next();
 });
@@ -53,7 +53,7 @@ PlayerEvent.onDisconnect(({ player, next }) => {
 PlayerEvent.onText(({ player, text, next }) => {
   Player.sendClientMessageToAll(
     ColorEnum.White,
-    `${player.getName()}(${player.id}): ${text}`
+    `${player.getName().name}(${player.id}): ${text}`
   );
   next();
   return false;
