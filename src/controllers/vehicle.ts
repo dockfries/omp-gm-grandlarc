@@ -2,7 +2,7 @@ import { Vehicle } from "@infernus/core";
 import fs from "fs";
 import path from "path";
 
-const vehicleFiles = path.resolve(__dirname, "../scriptfiles/vehicles");
+const vehicleFiles = path.resolve("scriptfiles/vehicles");
 
 const LoadStaticVehiclesFromFile = (path: string) => {
   return new Promise<string[]>((resolve, reject) => {
