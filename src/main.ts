@@ -25,6 +25,7 @@ import {
   SkinChanger,
   VSpawner,
   GlProperty,
+  GlNpcs,
 } from "@infernus/fs";
 
 GameMode.onInit(({ next }) => {
@@ -86,4 +87,5 @@ GameMode.use(GlActions)
   .use(VSpawner)
   .use(LsMall)
   .use(LSBeachSide)
-  .use(GlProperty);
+  .use(GlProperty)
+  .use(GlNpcs);

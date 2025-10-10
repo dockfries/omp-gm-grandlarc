@@ -26,6 +26,8 @@ import {
 import { chooseLanguage } from "@/controllers/dialog";
 
 PlayerEvent.onConnect(({ player, next }) => {
+  if (player.isNpc()) return next();
+
   playerSelections.set(player, {
     selectedCity: CityEnum.LOS_SANTOS,
     hasSelected: false,
@@ -35,6 +37,8 @@ PlayerEvent.onConnect(({ player, next }) => {
 });
 
 PlayerEvent.onConnect(async ({ player, next }) => {
+  if (player.isNpc()) return next();
+  
   await chooseLanguage(player);
   const gt = new GameText("~w~Grand Larceny", 3000, 4);
   gt.forPlayer(player);
@@ -46,11 +50,15 @@ PlayerEvent.onConnect(async ({ player, next }) => {
 });
 
 PlayerEvent.onDisconnect(({ player, next }) => {
+  if (player.isNpc()) return next();
+
   playerSelections.delete(player);
   return next();
 });
 
 PlayerEvent.onText(({ player, text, next }) => {
+  if (player.isNpc()) return next();
+
   Player.sendClientMessageToAll(
     ColorEnum.White,
     `${player.getName().name}(${player.id}): ${text}`
@@ -73,6 +81,8 @@ PlayerEvent.onCommandError(({ player, command, error, next }) => {
 });
 
 PlayerEvent.onDeath(({ player, killer, next }) => {
+  if (player.isNpc()) return next();
+
   if (killer === InvalidEnum.PLAYER_ID) {
     player.resetMoney();
     return next();
@@ -88,6 +98,8 @@ PlayerEvent.onDeath(({ player, killer, next }) => {
 });
 
 PlayerEvent.onRequestClass(({ player, next }) => {
+  if (player.isNpc()) return next();
+
   const s = playerSelections.get(player)!;
 
   if (s.hasSelected) {
@@ -104,9 +116,10 @@ PlayerEvent.onRequestClass(({ player, next }) => {
 });
 
 PlayerEvent.onSpawn(({ player, next }) => {
+  if (player.isNpc()) return next();
+
   const s = playerSelections.get(player)!;
 
-  if (player.isNpc()) return next();
   player.setInterior(0);
   player.toggleClock(false);
   player.resetMoney();
@@ -148,6 +161,8 @@ PlayerEvent.onSpawn(({ player, next }) => {
 });
 
 PlayerEvent.onUpdate(({ player, next }) => {
+  if (player.isNpc()) return next();
+
   const s = playerSelections.get(player)!;
 
   // changing cities by inputs
