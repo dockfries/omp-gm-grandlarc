@@ -10,13 +10,22 @@ export default defineConfig({
           bundle: "./src/main.ts",
         },
       },
+      banner: {
+        js: isDev ? `import "source-map-support/register.js"` : "",
+      },
     },
   ],
   output: {
+    cleanDistPath: !isDev,
     target: "node",
-    sourceMap: {
-      js: isDev ? "cheap-module-source-map" : false,
-    },
+    sourceMap: isDev,
     minify: !isDev,
+  },
+  tools: {
+    rspack: {
+      output: {
+        devtoolModuleFilenameTemplate: "[absolute-resource-path]",
+      },
+    },
   },
 });
