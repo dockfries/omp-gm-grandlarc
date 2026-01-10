@@ -73,7 +73,7 @@ const AddPlayerClassList = (): void => {
       -1,
       -1,
       -1,
-      -1
+      -1,
     );
   });
 };

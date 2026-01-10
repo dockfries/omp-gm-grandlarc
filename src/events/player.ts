@@ -38,13 +38,13 @@ PlayerEvent.onConnect(({ player, next }) => {
 
 PlayerEvent.onConnect(async ({ player, next }) => {
   if (player.isNpc()) return next();
-  
+
   await chooseLanguage(player);
   const gt = new GameText("~w~Grand Larceny", 3000, 4);
   gt.forPlayer(player);
   player.sendClientMessage(
     ColorEnum.White,
-    $t("server.welcome", [player.getName().name], player.locale)
+    $t("server.welcome", [player.getName().name], player.locale),
   );
   return next();
 });
@@ -61,7 +61,7 @@ PlayerEvent.onText(({ player, text, next }) => {
 
   Player.sendClientMessageToAll(
     ColorEnum.White,
-    `${player.getName().name}(${player.id}): ${text}`
+    `${player.getName().name}(${player.id}): ${text}`,
   );
   next();
   return false;
@@ -73,8 +73,8 @@ PlayerEvent.onCommandError(({ player, command, error, next }) => {
     $t(
       `error.command${error.code ? "Undefined" : "Format"}`,
       [command],
-      player.locale
-    )
+      player.locale,
+    ),
   );
   next();
   return true;

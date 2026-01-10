@@ -35,7 +35,7 @@ export const ClassSel_SetupCharSelection = (p: Player) => {
         -2673.8381,
         1399.7424,
         918.3516,
-        CameraCutStylesEnum.CUT
+        CameraCutStylesEnum.CUT,
       );
       break;
     default:
@@ -119,7 +119,7 @@ const ClassSel_SetupSelectedCity = (p: Player) => {
         1887.6034,
         -1682.1442,
         47.6167,
-        CameraCutStylesEnum.CUT
+        CameraCutStylesEnum.CUT,
       );
       losSantosTD.show(p);
       break;
@@ -129,7 +129,7 @@ const ClassSel_SetupSelectedCity = (p: Player) => {
         -1817.9412,
         769.3878,
         132.6589,
-        CameraCutStylesEnum.CUT
+        CameraCutStylesEnum.CUT,
       );
       sanFierroTD.show(p);
       break;

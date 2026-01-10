@@ -36,7 +36,7 @@ export const loadAllStaticVehicles = async () => {
   try {
     const promiseList = vehicleFiles.map((fileName) => {
       return LoadStaticVehiclesFromFile(
-        path.join(vehicleFolder, fileName + ".txt")
+        path.join(vehicleFolder, fileName + ".txt"),
       );
     });
     const vehicleDataList = await Promise.all(promiseList);
@@ -63,7 +63,7 @@ export const loadAllStaticVehicles = async () => {
             respawnDelay: 30 * 60,
             addSiren: false,
           },
-          true
+          true,
         ); // respawn 30 minutes
         veh.create();
         if (veh.id !== -1) {
@@ -73,7 +73,7 @@ export const loadAllStaticVehicles = async () => {
             "Failed to create vehicle",
             realData,
             vehicleFiles[fileIndex],
-            index
+            index,
           );
         }
       });

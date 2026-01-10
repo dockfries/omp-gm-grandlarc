@@ -19,7 +19,7 @@ const chooseCharsetDialog = new Dialog({
     (prev: string, curr: CharsetEnum, idx: number): string => {
       return `${prev}${idx + 1}.${curr}\n`;
     },
-    ""
+    "",
   ),
   button1: "ok",
 });
@@ -31,7 +31,7 @@ export const chooseLanguage = async (p: Player) => {
     (prev, curr, idx: number): string => {
       return `${prev}${idx + 1}.${curr[currLocale]}\n`;
     },
-    ""
+    "",
   );
 
   const { listItem: localeIdx } = await chooseLangDialog.show(p);
@@ -42,7 +42,7 @@ export const chooseLanguage = async (p: Player) => {
   p.charset = charsets[charsetIdx];
   p.sendClientMessage(
     ColorEnum.White,
-    $t("dialog.lang.change", [localesTitle[locale][locale]], p.locale)
+    $t("dialog.lang.change", [localesTitle[locale][locale]], p.locale),
   );
   return p;
 };
