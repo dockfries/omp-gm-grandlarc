@@ -1,9 +1,8 @@
 import {
-  ClassSel_HandleCitySelection,
-  ClassSel_SetupCharSelection,
+  ClassSel,
   playerSelections,
-} from "@/controllers/selection";
-import { classSelHelperTD } from "@/controllers/textdraw";
+  classSelHelperTD,
+} from "@/controllers/classSel";
 import { CityEnum } from "@/enums/city";
 import {
   gRandomSpawns_LasVenturas,
@@ -103,7 +102,7 @@ PlayerEvent.onRequestClass(({ player, next }) => {
   const s = playerSelections.get(player)!;
 
   if (s.hasSelected) {
-    ClassSel_SetupCharSelection(player);
+    ClassSel.setupCharSelection(player);
     return next();
   }
   if (player.getState() !== PlayerStateEnum.SPECTATING) {
@@ -167,7 +166,7 @@ PlayerEvent.onUpdate(({ player, next }) => {
 
   // changing cities by inputs
   if (!s.hasSelected && player.getState() === PlayerStateEnum.SPECTATING) {
-    ClassSel_HandleCitySelection(player);
+    ClassSel.handleCitySelection(player);
     return next();
   }
 

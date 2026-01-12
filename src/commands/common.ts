@@ -1,4 +1,4 @@
-import { playerSelections } from "@/controllers/selection";
+import { playerSelections } from "@/controllers/classSel";
 import { PlayerEvent } from "@infernus/core";
 
 PlayerEvent.onCommandText("kill", ({ player, next }) => {

@@ -13,7 +13,7 @@ import "@/commands";
 import "@/events/player";
 
 import { loadAllStaticVehicles } from "./controllers/vehicle";
-import { ClassSel_InitTextDraws } from "./controllers/textdraw";
+import { ClassSel } from "./controllers/classSel";
 import {
   Attachments,
   GlActions,
@@ -28,28 +28,7 @@ import {
   GlNpcs,
 } from "@infernus/fs";
 
-GameMode.onInit(({ next }) => {
-  GameMode.supportAllNickname();
-  GameMode.setGameModeText("Grand Larceny");
-  GameMode.showPlayerMarkers(MarkerModesEnum.GLOBAL);
-  GameMode.showNameTags(true);
-  GameMode.setNameTagDrawDistance(40.0);
-  GameMode.enableStuntBonusForAll(false);
-  GameMode.disableInteriorEnterExits();
-  GameMode.setWeather(2);
-  ClassSel_InitTextDraws();
-  AddPlayerClassList();
-  loadAllStaticVehicles().then((total: number) => {
-    console.log(`Total vehicles from files: ${total}`);
-  });
-
-  console.log("\n---------------------------------------");
-  console.log($t("server.running"));
-  console.log("---------------------------------------\n");
-  return next();
-});
-
-const AddPlayerClassList = (): void => {
+function addPlayerClassList() {
   const position = {
     spawn_x: 1759.0189,
     spawn_y: -1898.126,
@@ -61,9 +40,9 @@ const AddPlayerClassList = (): void => {
     68, 69, 70, 71, 72, 73, 75, 76, 78, 79, 80, 81, 82, 83, 84, 85, 87, 88, 89,
     91, 92, 93, 95, 96, 97, 98, 99,
   ];
-  classIdList.forEach((modelid: number) => {
+  classIdList.forEach((modelId: number) => {
     GameMode.addPlayerClass(
-      modelid,
+      modelId,
       position.spawn_x,
       position.spawn_y,
       position.spawn_z,
@@ -76,7 +55,28 @@ const AddPlayerClassList = (): void => {
       -1,
     );
   });
-};
+}
+
+GameMode.onInit(({ next }) => {
+  GameMode.supportAllNickname();
+  GameMode.setGameModeText("Grand Larceny");
+  GameMode.showPlayerMarkers(MarkerModesEnum.GLOBAL);
+  GameMode.showNameTags(true);
+  GameMode.setNameTagDrawDistance(40.0);
+  GameMode.enableStuntBonusForAll(false);
+  GameMode.disableInteriorEnterExits();
+  GameMode.setWeather(2);
+  ClassSel.initTextDraws();
+  addPlayerClassList();
+  loadAllStaticVehicles().then((total: number) => {
+    console.log(`Total vehicles from files: ${total}`);
+  });
+
+  console.log("\n---------------------------------------");
+  console.log($t("server.running"));
+  console.log("---------------------------------------\n");
+  return next();
+});
 
 GameMode.use(GlActions)
   .use(GlRealTime)

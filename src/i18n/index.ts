@@ -1,11 +1,11 @@
 import { LanguageEnum } from "@/enums/language";
 import { I18n, TLocales } from "@infernus/core";
-import zh_cn from "./locales/zh-CN.json";
-import en_us from "./locales/en-US.json";
+import zh_CN from "./locales/zh-CN.json";
+import en_US from "./locales/en-US.json";
 
 export const locales: TLocales = {
-  [LanguageEnum.Chinese]: zh_cn,
-  [LanguageEnum.English]: en_us,
+  [LanguageEnum.Chinese]: zh_CN,
+  [LanguageEnum.English]: en_US,
 };
 
 export const localesTitle = {
