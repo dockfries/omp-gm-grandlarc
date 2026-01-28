@@ -5,6 +5,7 @@
 //
 //----------------------------------------------------------
 
+import { logger } from "./logger";
 import { GameMode, MarkerModesEnum } from "@infernus/core";
 import { $t } from "./i18n";
 
@@ -69,12 +70,12 @@ GameMode.onInit(({ next }) => {
   ClassSel.initTextDraws();
   addPlayerClassList();
   loadAllStaticVehicles().then((total: number) => {
-    console.log(`Total vehicles from files: ${total}`);
+    logger.info(`Total vehicles from files: ${total}`);
   });
 
-  console.log("\n---------------------------------------");
-  console.log($t("server.running"));
-  console.log("---------------------------------------\n");
+  logger.info("---------------------------------------");
+  logger.info($t("server.running"));
+  logger.info("---------------------------------------");
   return next();
 });
 

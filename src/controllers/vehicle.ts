@@ -1,3 +1,4 @@
+import { logger } from "@/logger";
 import { Vehicle } from "@infernus/core";
 import fs from "fs";
 import path from "path";
@@ -69,7 +70,7 @@ export const loadAllStaticVehicles = async () => {
         if (veh.id !== -1) {
           vehicles_loaded++;
         } else {
-          console.log(
+          logger.error(
             "Failed to create vehicle",
             realData,
             vehicleFiles[fileIndex],
@@ -81,7 +82,7 @@ export const loadAllStaticVehicles = async () => {
     });
     return vehicles_loaded;
   } catch (err) {
-    console.log(err);
+    logger.error(err);
   }
   return 0;
 };
