@@ -7,6 +7,7 @@ This repository contains the GrandLarceny sample game mode written using [infern
 
 ```sh
 pnpm dlx @infernus/create-app@latest install
+pnpm install --dev
 pnpm install
 pnpm build
 pnpm serve
