@@ -1,0 +1,62 @@
+{
+  "name": "omp-gm-grandlarc",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "The GrandLarceny sample gamemode written with infernus-starter",
+  "keywords": [
+    "sa-mp",
+    "sa:mp",
+    "open.mp",
+    "omp",
+    "gamemode",
+    "samp-node"
+  ],
+  "homepage": "https://github.com/dockfries/omp-gm-grandlarc#readme",
+  "bugs": {
+    "url": "https://github.com/dockfries/omp-gm-grandlarc/issues"
+  },
+  "license": "MIT",
+  "author": "dockfries",
+  "scripts": {
+    "serve": "cross-env NODE_ENV=production pnpm exec ./omp-server",
+    "dev": "cross-env NODE_ENV=development npm-run-all -p -r -l dev:server dev:watch",
+    "dev:watch": "vite build -m development",
+    "dev:server": "nodemon -x \"pnpm exec ./omp-server\" -I -w dist/bundle.js",
+    "build": "cross-env NODE_ENV=production vite build",
+    "format": "oxfmt",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "@infernus/core": "^0.14.4",
+    "@infernus/fs": "^0.14.1",
+    "winston": "^3.19.0"
+  },
+  "devDependencies": {
+    "@infernus/types": "^0.1.0",
+    "@types/node": "^25.8.0",
+    "cross-env": "^10.1.0",
+    "globals": "^17.6.0",
+    "husky": "^9.1.7",
+    "iconv-lite": "^0.7.2",
+    "lint-staged": "^17.0.5",
+    "node-gyp": "^12.3.0",
+    "nodemon": "^3.1.14",
+    "npm-run-all": "^4.1.5",
+    "oxfmt": "^0.50.0",
+    "oxlint": "^1.65.0",
+    "oxlint-tsgolint": "^0.23.0",
+    "source-map-support": "^0.5.21",
+    "typescript": "^6.0.3",
+    "vite": "^8.0.13"
+  },
+  "lint-staged": {
+    "*.{ts,js,json}": "pnpm run lint",
+    "*.{ts,js,json,yml}": "pnpm run format"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  }
+}
